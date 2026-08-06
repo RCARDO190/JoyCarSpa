@@ -5,19 +5,39 @@
   Sustituyan los valores vacíos por las fotos, video y datos reales del negocio.
   No necesitan cambiar el HTML para cargar imágenes: agreguen la ruta en `src`.
   Ejemplo: src: "assets/images/hero-joy-auto-spa.jpg"
+
+  ¿Una foto se ve muy recortada/con zoom en celular? Es porque una foto horizontal
+  (ancha) no cabe completa en un espacio vertical (como el celular) sin recortarse.
+  Pueden agregar `mobileSrc` con una foto recortada en vertical para ese mismo espacio,
+  y el sitio la usa automáticamente solo en pantallas de celular. Ejemplo:
+  hero: { src: "assets/images/hero.jpg", mobileSrc: "assets/images/hero-vertical.jpg", alt: "..." }
+  Si no agregan `mobileSrc`, se sigue usando la misma foto (`src`) en todas las pantallas.
 */
 const SITE_CONFIG = {
   // Escribir solo números con código de país, sin +, espacios ni guiones.
   // Ejemplo para México: "526621234567". Se deja vacío para evitar enviar mensajes a un número de muestra.
   whatsappNumber: "526623274366",
-  email: "hola@joyautospa.mx",
+  email: "joyautospamx@gmail.com",
   // Pueden pegar aquí el enlace de Google Maps de la sucursal.
   mapsUrl: "",
+  // Logo real de la marca: peguen aquí la ruta de la imagen (ej. "assets/images/logo.png")
+  // y guarden el archivo dentro de assets/images. Mientras quede vacío, se sigue mostrando
+  // la "J" como marcador temporal en el encabezado y el pie de página.
+  logo: {
+    src: "assets/images/joylogoya.png",
+    alt: "JOY AUTO SPA",
+    height: 50, // Alto del logo en píxeles. Súbanlo o bájenlo hasta que se vea del tamaño correcto junto al texto.
+    offsetY: -55, // Ajuste fino vertical en píxeles (ej. -3 sube el logo, 3 lo baja) por si la imagen no queda centrada con el texto.
+  },
 };
 
 // Cada clave coincide con un atributo data-media-slot dentro de los archivos HTML.
 const IMAGE_SLOTS = {
-  hero: { src: "assets/images/lavado.jpg", alt: "Proceso profesional de detailing automotriz" },
+  hero: {
+  src: "assets/images/joy portada 2.jpeg",              // la foto normal (PC y tablet)
+  mobileSrc: "assets/images/fondomobile.png", // opcional: solo se usa en celular
+  alt: "Proceso profesional de detailing automotriz",
+},
   story: { src: "assets/images/lavado.jpg", alt: "Equipo de JOY AUTO SPA trabajando" },
   before: { src: "assets/images/Gemini_Generated_Image_k33auxk33auxk33a.png", alt: "Vehículo antes del tratamiento" },
   after: { src: "assets/images/sucio.jpg", alt: "Vehículo después del tratamiento" },
@@ -68,12 +88,25 @@ function renderMediaSlot(slot, key) {
   }
 
   if (image?.src) {
+    const picture = document.createElement("picture");
+
+    // Si se configuró una foto específica para celular (mobileSrc), el navegador la usa
+    // automáticamente en pantallas angostas (680px o menos); si no, siempre usa `src`.
+    if (image.mobileSrc) {
+      const mobileSource = document.createElement("source");
+      mobileSource.media = "(max-width: 680px)";
+      mobileSource.srcset = image.mobileSrc;
+      picture.append(mobileSource);
+    }
+
     const imageElement = document.createElement("img");
     imageElement.src = image.src;
     imageElement.alt = image.alt || label;
     imageElement.loading = key === "hero" ? "eager" : "lazy";
     imageElement.decoding = "async";
-    slot.append(imageElement);
+    picture.append(imageElement);
+
+    slot.append(picture);
     slot.classList.add("has-media");
     return;
   }
@@ -88,6 +121,21 @@ function renderMediaSlot(slot, key) {
 function renderAllMedia() {
   document.querySelectorAll("[data-media-slot]").forEach((slot) => {
     renderMediaSlot(slot, slot.dataset.mediaSlot);
+  });
+}
+
+/** Sustituye la "J" por el logo real (SITE_CONFIG.logo) en el encabezado y el pie de página de cualquier página. */
+function renderBrandLogo() {
+  if (!SITE_CONFIG.logo.src) return; // Sin logo configurado: se conserva la "J" como marcador temporal.
+  document.querySelectorAll(".brand-mark").forEach((mark) => {
+    mark.replaceChildren();
+    const logoImage = document.createElement("img");
+    logoImage.src = SITE_CONFIG.logo.src;
+    logoImage.alt = SITE_CONFIG.logo.alt || "";
+    mark.append(logoImage);
+    mark.classList.add("has-logo");
+    mark.style.height = `${SITE_CONFIG.logo.height}px`;
+    mark.style.transform = SITE_CONFIG.logo.offsetY ? `translateY(${SITE_CONFIG.logo.offsetY}px)` : "";
   });
 }
 
@@ -245,6 +293,7 @@ function setupServicePage() {
 // Arranque centralizado: mantengan aquí los módulos nuevos si agregan funcionalidades.
 document.addEventListener("DOMContentLoaded", () => {
   renderAllMedia();
+  renderBrandLogo();
   configureContactLinks();
   setupNavigation();
   setupBookingForm();
