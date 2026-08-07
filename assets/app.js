@@ -35,7 +35,7 @@ const SITE_CONFIG = {
 const IMAGE_SLOTS = {
   hero: {
   src: "assets/images/joy portada 2.jpeg",              // la foto normal (PC y tablet)
-  mobileSrc: "assets/images/fondomobile.png", // opcional: solo se usa en celular
+  mobileSrc: "assets/images/joylogoya.png", // opcional: solo se usa en celular
   alt: "Proceso profesional de detailing automotriz",
 },
   story: { src: "assets/images/lavado.jpg", alt: "Equipo de JOY AUTO SPA trabajando" },
@@ -46,17 +46,17 @@ const IMAGE_SLOTS = {
   "gallery-3": { src: "assets/images/lavado.jpg", alt: "Rines con acabado protegido" },
   "gallery-4": { src: "assets/images/lavado.jpg", alt: "Proceso de corrección de pintura" },
   // Fotos principales de las páginas individuales de servicio.
-  "joy-care": { src: "assets/images/lavado.jpg", alt: "Servicio JOY CARE en JOY AUTO SPA" },
-  "joy-interior": { src: "assets/images/lavado.jpg", alt: "Servicio JOY INTERIOR en JOY AUTO SPA" },
-  "joy-restore": { src: "assets/images/lavado.jpg", alt: "Servicio JOY RESTORE en JOY AUTO SPA" },
-  "joy-protect": { src: "assets/images/lavado.jpg", alt: "Servicio JOY PROTECT en JOY AUTO SPA" },
-  prestige: { src: "assets/images/lavado.jpg", alt: "Servicio PRESTIGE en JOY AUTO SPA" },
+  "joy-care": { src: "../assets/images/lavado.jpg", alt: "Servicio JOY CARE en JOY AUTO SPA" },
+  "joy-interior": { src: "../assets/images/lavado.jpg", alt: "Servicio JOY INTERIOR en JOY AUTO SPA" },
+  "joy-restore": { src: "../assets/images/lavado.jpg", alt: "Servicio JOY RESTORE en JOY AUTO SPA" },
+  "joy-protect": { src: "../assets/images/lavado.jpg", alt: "Servicio JOY PROTECT en JOY AUTO SPA" },
+  prestige: { src: "../assets/images/lavado.jpg", alt: "Servicio PRESTIGE en JOY AUTO SPA" },
   // Galerías de cada tratamiento. Pueden dejar cualquier espacio vacío mientras consiguen la foto.
-  "joy-care-1": { src: "assets/images/lavado.jpg", alt: "Lavado seguro de JOY CARE" }, "joy-care-2": { src: "", alt: "Acabado de JOY CARE" }, "joy-care-3": { src: "", alt: "Detalle de JOY CARE" },
-  "joy-interior-1": { src: "assets/images/lavado.jpg", alt: "Limpieza de JOY INTERIOR" }, "joy-interior-2": { src: "", alt: "Detalle de JOY INTERIOR" }, "joy-interior-3": { src: "", alt: "Acabado de JOY INTERIOR" },
-  "joy-restore-1": { src: "assets/images/lavado.jpg", alt: "Corrección de JOY RESTORE" }, "joy-restore-2": { src: "", alt: "Proceso de JOY RESTORE" }, "joy-restore-3": { src: "", alt: "Reflejo de JOY RESTORE" },
-  "joy-protect-1": { src: "assets/images/lavado.jpg", alt: "Aplicación de JOY PROTECT" }, "joy-protect-2": { src: "", alt: "Protección de JOY PROTECT" }, "joy-protect-3": { src: "", alt: "Acabado de JOY PROTECT" },
-  "prestige-1": { src: "assets/images/lavado.jpg", alt: "Preparación PRESTIGE" }, "prestige-2": { src: "", alt: "Proceso PRESTIGE" }, "prestige-3": { src: "", alt: "Resultado PRESTIGE" },
+  "joy-care-1": { src: "../assets/images/lavado.jpg", alt: "Lavado seguro de JOY CARE" }, "joy-care-2": { src: "", alt: "Acabado de JOY CARE" }, "joy-care-3": { src: "", alt: "Detalle de JOY CARE" },
+  "joy-interior-1": { src: "../assets/images/lavado.jpg", alt: "Limpieza de JOY INTERIOR" }, "joy-interior-2": { src: "", alt: "Detalle de JOY INTERIOR" }, "joy-interior-3": { src: "", alt: "Acabado de JOY INTERIOR" },
+  "joy-restore-1": { src: "../assets/images/lavado.jpg", alt: "Corrección de JOY RESTORE" }, "joy-restore-2": { src: "", alt: "Proceso de JOY RESTORE" }, "joy-restore-3": { src: "", alt: "Reflejo de JOY RESTORE" },
+  "joy-protect-1": { src: "../assets/images/lavado.jpg", alt: "Aplicación de JOY PROTECT" }, "joy-protect-2": { src: "", alt: "Protección de JOY PROTECT" }, "joy-protect-3": { src: "", alt: "Acabado de JOY PROTECT" },
+  "prestige-1": { src: "../assets/images/lavado.jpg", alt: "Preparación PRESTIGE" }, "prestige-2": { src: "", alt: "Proceso PRESTIGE" }, "prestige-3": { src: "", alt: "Resultado PRESTIGE" },
 };
 
 // Si cuentan con un video para la portada, coloquen la ruta aquí. Tiene prioridad sobre IMAGE_SLOTS.hero.
