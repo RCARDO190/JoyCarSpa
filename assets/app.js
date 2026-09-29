@@ -38,26 +38,26 @@ const IMAGE_SLOTS = {
   mobileSrc: "assets/images/joylogoya.png", // opcional: solo se usa en celular
   alt: "Proceso profesional de detailing automotriz",
 },
-  story: { src: "assets/images/lavado.jpg", alt: "Equipo de JOY AUTO SPA trabajando" },
+  story: { src: "X", alt: "Equipo de JOY AUTO SPA trabajando" },
   before: { src: "assets/images/Gemini_Generated_Image_k33auxk33auxk33a.png", alt: "Vehículo antes del tratamiento" },
   after: { src: "assets/images/sucio.jpg", alt: "Vehículo después del tratamiento" },
-  "gallery-1": { src: "assets/images/lavado.jpg", alt: "Detalle de pintura con acabado brillante" },
-  "gallery-2": { src: "assets/images/lavado.jpg", alt: "Interior limpio y acondicionado" },
+  "gallery-1": { src: "X", alt: "Detalle de pintura con acabado brillante" },
+  "gallery-2": { src: "X", alt: "Interior limpio y acondicionado" },
   "gallery-3": { src: "assets/images/lavado.jpSg", alt: "Rines con acabado protegido" },
-  "gallery-4": { src: "assets/images/lavado.jpg", alt: "Proceso de corrección de pintura" },
+  "gallery-4": { src: "X", alt: "Proceso de corrección de pintura" },
   // Fotos principales de las páginas individuales de servicio.
-  "joy-care": { src: "../assets/images/lavado.jpg", alt: "Servicio JOY CARE en JOY AUTO SPA" },
-  "joy-interior": { src: "../assets/images/lavado.jpg", alt: "Servicio JOY INTERIOR en JOY AUTO SPA" },
-  "joy-restore": { src: "../assets/images/lavado.jpg", alt: "Servicio JOY RESTORE en JOY AUTO SPA" },
-  "joy-protect": { src: "../assets/images/lavado.jpg", alt: "Servicio JOY PROTECT en JOY AUTO SPA" },
-  prestige: { src: "../assets/images/lavado.jpg", alt: "Servicio PRESTIGE en JOY AUTO SPA" },
+  "joy-care": { src: "../X", alt: "Servicio JOY CARE en JOY AUTO SPA" },
+  "joy-interior": { src: "../X", alt: "Servicio JOY INTERIOR en JOY AUTO SPA" },
+  "joy-restore": { src: "../X", alt: "Servicio JOY RESTORE en JOY AUTO SPA" },
+  "joy-protect": { src: "../X", alt: "Servicio JOY PROTECT en JOY AUTO SPA" },
+  prestige: { src: "../X", alt: "Servicio PRESTIGE en JOY AUTO SPA" },
   // Galerías de cada tratamiento. Pueden dejar cualquier espacio vacío mientras consiguen la foto.
 
-  "joy-care": { src: "../assets/images/lavado.jpg", alt: "Lavado seguro de JOY CARE" },"joy-care-1": { src: "../assets/images/lavado.jpg", alt: "Lavado seguro de JOY CARE" }, "joy-care-2": { src: "../assets/images/lavado.jpg", alt: "Acabado de JOY CARE" }, "joy-care-3": { src: "../assets/images/lavado.jpg", alt: "Detalle de JOY CARE" },
-  "joy-interior-1": { src: "../assets/images/lavado.jpg", alt: "Limpieza de JOY INTERIOR" }, "joy-interior-2": { src: "../assets/images/lavado.jpg", alt: "Detalle de JOY INTERIOR" }, "joy-interior-3": { src: "../assets/images/lavado.jpg", alt: "Acabado de JOY INTERIOR" },
-  "joy-restore-1": { src: "../assets/images/lavado.jpg", alt: "Corrección de JOY RESTORE" }, "joy-restore-2": { src: "../assets/images/lavado.jpg", alt: "Proceso de JOY RESTORE" }, "joy-restore-3": { src: "../assets/images/lavado.jpg", alt: "Reflejo de JOY RESTORE" },
-  "joy-protect-1": { src: "../assets/images/lavado.jpg", alt: "Aplicación de JOY PROTECT" }, "joy-protect-2": { src: "../assets/images/lavado.jpg", alt: "Protección de JOY PROTECT" }, "joy-protect-3": { src: "../assets/images/lavado.jpg", alt: "Acabado de JOY PROTECT" },
-  "prestige-1": { src: "../assets/images/lavado.jpg", alt: "Preparación PRESTIGE" }, "prestige-2": { src: "../assets/images/lavado.jpg", alt: "Proceso PRESTIGE" }, "prestige-3": { src: "../assets/images/lavado.jpg", alt: "Resultado PRESTIGE" },
+  "joy-care": { src: "../X", alt: "Lavado seguro de JOY CARE" },"joy-care-1": { src: "../X", alt: "Lavado seguro de JOY CARE" }, "joy-care-2": { src: "../X", alt: "Acabado de JOY CARE" }, "joy-care-3": { src: "../X", alt: "Detalle de JOY CARE" },
+  "joy-interior-1": { src: "../X", alt: "Limpieza de JOY INTERIOR" }, "joy-interior-2": { src: "../X", alt: "Detalle de JOY INTERIOR" }, "joy-interior-3": { src: "../X", alt: "Acabado de JOY INTERIOR" },
+  "joy-restore-1": { src: "../X", alt: "Corrección de JOY RESTORE" }, "joy-restore-2": { src: "../X", alt: "Proceso de JOY RESTORE" }, "joy-restore-3": { src: "../X", alt: "Reflejo de JOY RESTORE" },
+  "joy-protect-1": { src: "../X", alt: "Aplicación de JOY PROTECT" }, "joy-protect-2": { src: "../X", alt: "Protección de JOY PROTECT" }, "joy-protect-3": { src: "../X", alt: "Acabado de JOY PROTECT" },
+  "prestige-1": { src: "../X", alt: "Preparación PRESTIGE" }, "prestige-2": { src: "../X", alt: "Proceso PRESTIGE" }, "prestige-3": { src: "../X", alt: "Resultado PRESTIGE" },
 
 };
 
