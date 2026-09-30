@@ -27,7 +27,7 @@ const SITE_CONFIG = {
     src: "assets/images/joylogoya.png",
     alt: "JOY AUTO SPA",
     height: 50, // Alto del logo en píxeles. Súbanlo o bájenlo hasta que se vea del tamaño correcto junto al texto.
-    offsetY: -55, // Ajuste fino vertical en píxeles (ej. -3 sube el logo, 3 lo baja) por si la imagen no queda centrada con el texto.
+    offsetY: 0, // Ajuste fino vertical en píxeles por si la imagen no queda centrada con el texto.
   },
 };
 
@@ -50,21 +50,104 @@ const IMAGE_SLOTS = {
   "joy-interior": { src: "../X", alt: "Servicio JOY INTERIOR en JOY AUTO SPA" },
   "joy-restore": { src: "../X", alt: "Servicio JOY RESTORE en JOY AUTO SPA" },
   "joy-protect": { src: "../X", alt: "Servicio JOY PROTECT en JOY AUTO SPA" },
-  prestige: { src: "../X", alt: "Servicio PRESTIGE en JOY AUTO SPA" },
-  // Galerías de cada tratamiento. Pueden dejar cualquier espacio vacío mientras consiguen la foto.
-
-  "joy-care": { src: "../X", alt: "Lavado seguro de JOY CARE" },"joy-care-1": { src: "../X", alt: "Lavado seguro de JOY CARE" }, "joy-care-2": { src: "../X", alt: "Acabado de JOY CARE" }, "joy-care-3": { src: "../X", alt: "Detalle de JOY CARE" },
-  "joy-interior-1": { src: "../X", alt: "Limpieza de JOY INTERIOR" }, "joy-interior-2": { src: "../X", alt: "Detalle de JOY INTERIOR" }, "joy-interior-3": { src: "../X", alt: "Acabado de JOY INTERIOR" },
-  "joy-restore-1": { src: "../X", alt: "Corrección de JOY RESTORE" }, "joy-restore-2": { src: "../X", alt: "Proceso de JOY RESTORE" }, "joy-restore-3": { src: "../X", alt: "Reflejo de JOY RESTORE" },
-  "joy-protect-1": { src: "../X", alt: "Aplicación de JOY PROTECT" }, "joy-protect-2": { src: "../X", alt: "Protección de JOY PROTECT" }, "joy-protect-3": { src: "../X", alt: "Acabado de JOY PROTECT" },
-  "prestige-1": { src: "../X", alt: "Preparación PRESTIGE" }, "prestige-2": { src: "../X", alt: "Proceso PRESTIGE" }, "prestige-3": { src: "../X", alt: "Resultado PRESTIGE" },
-
+  prestige: { src: "../X", alt: "Servicio PRESTIGE en JOY AUTO SPA" }
 };
 
 // Si cuentan con un video para la portada, coloquen la ruta aquí. Tiene prioridad sobre IMAGE_SLOTS.hero.
 const VIDEO_SLOTS = {
   hero: { src: "", poster: "", ariaLabel: "Video de procesos de JOY AUTO SPA" },
 };
+
+function getSiteRoot() {
+  const appScript = [...document.scripts].find((script) => new URL(script.src).pathname.endsWith("/assets/app.js"));
+  return appScript ? new URL("../", appScript.src) : new URL("./", document.baseURI);
+}
+
+class SiteHeader {
+  constructor(mountPoint, siteRoot) {
+    this.mountPoint = mountPoint;
+    this.siteRoot = siteRoot;
+  }
+
+  indexUrl(section) {
+    const url = new URL("index.html", this.siteRoot);
+    url.hash = section;
+    return url.href;
+  }
+
+  render() {
+    const header = document.createElement("header");
+    header.className = "site-header";
+    header.dataset.header = "";
+
+    const shell = document.createElement("div");
+    shell.className = "shell header-inner";
+
+    const brand = document.createElement("a");
+    brand.className = "brand";
+    brand.href = this.indexUrl("inicio");
+    brand.setAttribute("aria-label", "JOY AUTO SPA, inicio");
+    const brandMark = document.createElement("span");
+    brandMark.className = "brand-mark";
+    brandMark.setAttribute("aria-hidden", "true");
+    brandMark.textContent = "J";
+    const brandName = document.createElement("span");
+    const brandTitle = document.createElement("strong");
+    brandTitle.textContent = "JOY";
+    const brandSubtitle = document.createElement("small");
+    brandSubtitle.textContent = "AUTO SPA";
+    brandName.append(brandTitle, brandSubtitle);
+    brand.append(brandMark, brandName);
+
+    const toggle = document.createElement("button");
+    toggle.className = "menu-toggle";
+    toggle.type = "button";
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-controls", "main-nav");
+    toggle.dataset.menuToggle = "";
+    const toggleLabel = document.createElement("span");
+    toggleLabel.className = "sr-only";
+    toggleLabel.textContent = "Abrir menú";
+    const firstLine = document.createElement("i");
+    const secondLine = document.createElement("i");
+    firstLine.setAttribute("aria-hidden", "true");
+    secondLine.setAttribute("aria-hidden", "true");
+    toggle.append(toggleLabel, firstLine, secondLine);
+
+    const nav = document.createElement("nav");
+    nav.className = "main-nav";
+    nav.id = "main-nav";
+    nav.setAttribute("aria-label", "Navegación principal");
+    nav.dataset.nav = "";
+    [["Inicio", "inicio"], ["Nosotros", "nosotros"], ["Servicios", "servicios"], ["Galería", "galeria"], ["Blog", "blog"], ["Contacto", "contacto"]].forEach(([label, section]) => {
+      const link = document.createElement("a");
+      link.href = this.indexUrl(section);
+      link.textContent = label;
+      nav.append(link);
+    });
+
+    const bookingLink = document.createElement("a");
+    bookingLink.className = "button button-small";
+    bookingLink.href = this.indexUrl("agenda");
+    bookingLink.append(document.createTextNode("Agenda tu cita "));
+    const arrow = document.createElement("span");
+    arrow.setAttribute("aria-hidden", "true");
+    arrow.textContent = "↗";
+    bookingLink.append(arrow);
+    nav.append(bookingLink);
+
+    shell.append(brand, toggle, nav);
+    header.append(shell);
+    this.mountPoint.replaceWith(header);
+  }
+}
+
+function renderSiteHeaders() {
+  const siteRoot = getSiteRoot();
+  document.querySelectorAll("[data-site-header]").forEach((mountPoint) => {
+    new SiteHeader(mountPoint, siteRoot).render();
+  });
+}
 
 /** Crea una imagen, video o placeholder dentro de cualquier espacio de medios. */
 function renderMediaSlot(slot, key) {
@@ -129,11 +212,14 @@ function renderAllMedia() {
 /** Sustituye la "J" por el logo real (SITE_CONFIG.logo) en el encabezado y el pie de página de cualquier página. */
 function renderBrandLogo() {
   if (!SITE_CONFIG.logo.src) return; // Sin logo configurado: se conserva la "J" como marcador temporal.
+  const siteRoot = getSiteRoot();
+  const logoSource = new URL(SITE_CONFIG.logo.src, siteRoot).href;
   document.querySelectorAll(".brand-mark").forEach((mark) => {
     mark.replaceChildren();
     const logoImage = document.createElement("img");
-    logoImage.src = SITE_CONFIG.logo.src;
+    logoImage.src = logoSource;
     logoImage.alt = SITE_CONFIG.logo.alt || "";
+    logoImage.style.height = `${SITE_CONFIG.logo.height}px`;
     mark.append(logoImage);
     mark.classList.add("has-logo");
     mark.style.height = `${SITE_CONFIG.logo.height}px`;
@@ -294,6 +380,7 @@ function setupServicePage() {
 
 // Arranque centralizado: mantengan aquí los módulos nuevos si agregan funcionalidades.
 document.addEventListener("DOMContentLoaded", () => {
+  renderSiteHeaders();
   renderAllMedia();
   renderBrandLogo();
   configureContactLinks();
