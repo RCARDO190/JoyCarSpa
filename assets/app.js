@@ -20,6 +20,12 @@ const SITE_CONFIG = {
   email: "joyautospamx@gmail.com",
   // Pueden pegar aquí el enlace de Google Maps de la sucursal.
   mapsUrl: "",
+  // Para mostrar un logo, indiquen su ruta dentro de assets/images en el campo logo.
+  socials: [
+    { label: "Instagram", text: "IG", url: "https://www.instagram.com/joyautospa/", logo: "assets/images/iglogo.png" },
+    { label: "Facebook", text: "FB", url: "https://www.facebook.com/profile.php?id=61592713452634", logo: "assets/images/fblogo.png" },
+    { label: "TikTok", text: "TT", url: "https://www.tiktok.com/@joyautospa", logo: "assets/images/tiktokfb.png" },
+  ],
   // Logo real de la marca: peguen aquí la ruta de la imagen (ej. "assets/images/logo.png")
   // y guarden el archivo dentro de assets/images. Mientras quede vacío, se sigue mostrando
   // la "J" como marcador temporal en el encabezado y el pie de página.
@@ -166,9 +172,29 @@ function renderSiteFooters() {
         <div><a class="brand brand-footer" href="${new URL("index.html#inicio", siteRoot).href}"><span class="brand-mark" aria-hidden="true">J</span><span><strong>JOY</strong><small>AUTO SPA</small></span></a><p>Detailing automotriz premium en Hermosillo, Sonora.</p></div>
         <div><h2>Visítanos</h2><p>Ubicación por confirmar<br>Hermosillo, Sonora, México</p><a data-map-link href="#" target="_blank" rel="noopener noreferrer">Ver en Google Maps ↗</a></div>
         <div><h2>Horario</h2><p>Lunes a viernes · 9:00–18:00<br>Sábados · 9:00–14:00<br>Domingos · Cerrado</p></div>
-        <div><h2>Contacto</h2><a data-whatsapp-direct href="#" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a data-email-link href="#">joyautospamx@gmail.com</a><div class="social-links"><a href="https://www.instagram.com/joyautospa/" aria-label="Instagram de JOY AUTO SPA">IG</a><a href="https://www.facebook.com/profile.php?id=61592713452634" aria-label="Facebook de JOY AUTO SPA">FB</a></div></div>
+        <div><h2>Contacto</h2><a data-whatsapp-direct href="#" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a data-email-link href="#">joyautospamx@gmail.com</a><nav class="social-links" aria-label="Redes sociales"></nav></div>
       </div>
       <div class="shell footer-bottom"><span>© <span data-year></span> JOY AUTO SPA. Todos los derechos reservados.</span><span>Hecho para cuidar lo que te mueve.</span></div>`;
+    const socialContainer = footer.querySelector(".social-links");
+    SITE_CONFIG.socials.forEach(({ label, text, url, logo }) => {
+      const link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.setAttribute("aria-label", `${label} de JOY AUTO SPA`);
+
+      if (logo) {
+        const image = document.createElement("img");
+        image.className = "social-logo";
+        image.src = new URL(logo, siteRoot).href;
+        image.alt = "";
+        link.append(image);
+      } else {
+        link.textContent = text;
+      }
+
+      socialContainer.append(link);
+    });
     mountPoint.replaceWith(footer);
   });
 }
