@@ -38,13 +38,19 @@ const IMAGE_SLOTS = {
   mobileSrc: "assets/images/joylogoya.png", // opcional: solo se usa en celular
   alt: "Proceso profesional de detailing automotriz",
 },
-  story: { src: "X", alt: "Equipo de JOY AUTO SPA trabajando" },
-  before: { src: "assets/images/despues.jpeg", alt: "Vehículo antes del tratamiento" },
-  after: { src: "assets/images/antes.jpeg", alt: "Vehículo después del tratamiento" },
-  "gallery-1": { src: "X", alt: "Detalle de pintura con acabado brillante" },
-  "gallery-2": { src: "X", alt: "Interior limpio y acondicionado" },
-  "gallery-3": { src: "assets/images/lavado.jpg", alt: "Rines con acabado protegido" },
-  "gallery-4": { src: "X", alt: "Proceso de corrección de pintura" },
+  story: { src: "assets/images/equipo.png", alt: "Equipo de JOY AUTO SPA trabajando" },
+  process: { src: "assets/images/procesoreal.jpeg", alt: "Proceso de detailing en el vehículo" },
+  result: { src: "assets/images/despues.jpeg", alt: "Resultado final del tratamiento en el vehículo" },
+  "gallery-1": { src: "assets/images/nissan gris.jpeg", alt: "Detalle de pintura con acabado brillante" },
+  "gallery-2": { src: "assets/images/honda interior frontal.jpeg", alt: "Interior limpio y acondicionado" },
+  "gallery-3": { src: "assets/images/motor.jpeg", alt: "Motor detallado" },
+  "gallery-4": { src: "assets/images/vocho.png", alt: "Detallado automotriz" },
+  "gallery-5": { src: "assets/images/asiento.jpeg", alt: "Asiento limpio y acondicionado" },
+  "gallery-6": { src: "assets/images/cadillac.jpeg", alt: "Cadillac con acabado detallado" },
+  "gallery-7": { src: "assets/images/ford f150.jpeg", alt: "Ford F-150 después del lavado" },
+  "gallery-8": { src: "assets/images/honda interior.png", alt: "Interior de Honda detallado" },
+  "gallery-9": { src: "assets/images/honda negro frontal.png", alt: "Honda con exterior detallado" },
+  "gallery-10": { src: "assets/images/nissan gris frontal.png", alt: "Nissan con acabado detallado" },
   // Fotos principales de las páginas individuales de servicio.
   "joy-care": { src: "../X", alt: "Servicio JOY CARE en JOY AUTO SPA" },
   "joy-interior": { src: "../X", alt: "Servicio JOY INTERIOR en JOY AUTO SPA" },
@@ -119,7 +125,7 @@ class SiteHeader {
     nav.id = "main-nav";
     nav.setAttribute("aria-label", "Navegación principal");
     nav.dataset.nav = "";
-    [["Inicio", "inicio"], ["Nosotros", "nosotros"], ["Servicios", "servicios"], ["Galería", "galeria"], ["Blog", "blog"], ["Contacto", "contacto"]].forEach(([label, section]) => {
+    [["Inicio", "inicio"], ["Servicios", "servicios"], ["Nosotros", "nosotros"], ["Galería", "galeria"], ["Blog", "blog"], ["Contacto", "contacto"]].forEach(([label, section]) => {
       const link = document.createElement("a");
       link.href = this.indexUrl(section);
       link.textContent = label;
@@ -146,6 +152,24 @@ function renderSiteHeaders() {
   const siteRoot = getSiteRoot();
   document.querySelectorAll("[data-site-header]").forEach((mountPoint) => {
     new SiteHeader(mountPoint, siteRoot).render();
+  });
+}
+
+function renderSiteFooters() {
+  const siteRoot = getSiteRoot();
+  document.querySelectorAll("[data-site-footer]").forEach((mountPoint) => {
+    const footer = document.createElement("footer");
+    footer.className = "site-footer";
+    footer.id = "contacto";
+    footer.innerHTML = `
+      <div class="shell footer-grid">
+        <div><a class="brand brand-footer" href="${new URL("index.html#inicio", siteRoot).href}"><span class="brand-mark" aria-hidden="true">J</span><span><strong>JOY</strong><small>AUTO SPA</small></span></a><p>Detailing automotriz premium en Hermosillo, Sonora.</p></div>
+        <div><h2>Visítanos</h2><p>Ubicación por confirmar<br>Hermosillo, Sonora, México</p><a data-map-link href="#" target="_blank" rel="noopener noreferrer">Ver en Google Maps ↗</a></div>
+        <div><h2>Horario</h2><p>Lunes a viernes · 9:00–18:00<br>Sábados · 9:00–14:00<br>Domingos · Cerrado</p></div>
+        <div><h2>Contacto</h2><a data-whatsapp-direct href="#" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a data-email-link href="#">joyautospamx@gmail.com</a><div class="social-links"><a href="https://www.instagram.com/joyautospa/" aria-label="Instagram de JOY AUTO SPA">IG</a><a href="https://www.facebook.com/profile.php?id=61592713452634" aria-label="Facebook de JOY AUTO SPA">FB</a></div></div>
+      </div>
+      <div class="shell footer-bottom"><span>© <span data-year></span> JOY AUTO SPA. Todos los derechos reservados.</span><span>Hecho para cuidar lo que te mueve.</span></div>`;
+    mountPoint.replaceWith(footer);
   });
 }
 
@@ -357,17 +381,53 @@ function setupGallery() {
   const dialogMedia = dialog?.querySelector("[data-dialog-media]");
   if (!dialog || !dialogMedia) return;
 
-  document.querySelectorAll("[data-gallery-item]").forEach((item) => {
+  const items = [...document.querySelectorAll("[data-gallery-item]")];
+  let activeIndex = 0;
+
+  const showItem = (index) => {
+    activeIndex = (index + items.length) % items.length;
+    const item = items[activeIndex];
+    const source = item.querySelector("[data-media-slot]");
+    dialogMedia.dataset.label = source?.dataset.label || "Detalle de galería";
+    renderMediaSlot(dialogMedia, item.dataset.mediaKey);
+  };
+
+  items.forEach((item, index) => {
     item.addEventListener("click", () => {
-      const key = item.dataset.mediaKey;
-      const source = item.querySelector("[data-media-slot]");
-      dialogMedia.dataset.label = source?.dataset.label || "Detalle de galería";
-      renderMediaSlot(dialogMedia, key);
+      showItem(index);
       dialog.showModal();
     });
   });
+  dialog.querySelector("[data-dialog-prev]")?.addEventListener("click", () => showItem(activeIndex - 1));
+  dialog.querySelector("[data-dialog-next]")?.addEventListener("click", () => showItem(activeIndex + 1));
   dialog.querySelector("[data-dialog-close]")?.addEventListener("click", () => dialog.close());
   dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
+  dialog.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      showItem(activeIndex - 1);
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      showItem(activeIndex + 1);
+    }
+  });
+}
+
+function setupGalleryCarousel() {
+  const track = document.querySelector("[data-gallery-track]");
+  const previous = document.querySelector("[data-gallery-prev]");
+  const next = document.querySelector("[data-gallery-next]");
+  if (!track || !previous || !next) return;
+
+  const updateControls = () => {
+    previous.disabled = track.scrollLeft <= 0;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+  };
+  previous.addEventListener("click", () => track.scrollBy({ left: -track.clientWidth * 0.8 }));
+  next.addEventListener("click", () => track.scrollBy({ left: track.clientWidth * 0.8 }));
+  track.addEventListener("scroll", updateControls, { passive: true });
+  window.addEventListener("resize", updateControls);
+  updateControls();
 }
 
 function setupServicePage() {
@@ -381,6 +441,7 @@ function setupServicePage() {
 // Arranque centralizado: mantengan aquí los módulos nuevos si agregan funcionalidades.
 document.addEventListener("DOMContentLoaded", () => {
   renderSiteHeaders();
+  renderSiteFooters();
   renderAllMedia();
   renderBrandLogo();
   configureContactLinks();
@@ -388,6 +449,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupBookingForm();
   setupComparison();
   setupGallery();
+  setupGalleryCarousel();
   setupServicePage();
   document.querySelectorAll("[data-year]").forEach((node) => { node.textContent = new Date().getFullYear(); });
 });

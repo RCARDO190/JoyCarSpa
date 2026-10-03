@@ -12,7 +12,7 @@ Espacios listos para cargar:
 
 - `hero`: foto o video de portada (ideal: 1920 × 1080 px)
 - `story`: foto del equipo, instalación o proceso (ideal: 1200 × 1500 px)
-- `before` y `after`: misma toma, mismo encuadre (ideal: 1600 × 1067 px)
+- `process` y `result`: foto del proceso y su resultado (ideal: 1600 × 1067 px)
 - `gallery-1` a `gallery-4`: acabados, interiores, rines y proceso
 - Cada página de servicio usa su propia foto principal; configúrala en `IMAGE_SLOTS` usando la clave del servicio (`joy-care`, `joy-interior`, etc.).
 

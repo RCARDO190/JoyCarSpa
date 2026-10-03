@@ -72,9 +72,7 @@
             <span class="service-card__number">04</span><h3>JOY PROTECT</h3><p>Servicios destinados a proteger superficies y facilitar el mantenimiento posterior.</p><span class="service-card__link">Ver tratamiento <b>→</b></span>
           </a>
           <a class="service-card service-card-featured" href="services/prestige.html">
-            <span class="service-card__number">05</span><h3>PRESTIGE</h3><p>Detallado integral de máximo nivel
-
-Nuestra propuesta integral para quienes buscan un tratamiento completo del vehículo, combinando diferentes procesos especializados.</p><span class="service-card__link">Descubrir Prestige <b>→</b></span>
+            <span class="service-card__number">05</span><h3>PRESTIGE</h3><p>Detallado integral de máximo nivel. Nuestra propuesta integral para quienes buscan un tratamiento completo del vehículo, combinando diferentes procesos especializados.</p><span class="service-card__link">Descubrir Prestige <b>→</b></span>
           </a>
         </div>
       </div>
@@ -101,18 +99,18 @@ Nuestra propuesta integral para quienes buscan un tratamiento completo del vehí
     <section class="comparison-section section-soft" aria-labelledby="comparison-title">
       <div class="shell comparison-top">
         <div><p class="eyebrow">EL CAMBIO SE NOTA</p><h2 id="comparison-title">Resultados que hablan por sí solos.</h2></div>
-        <p>Arrastra el control para revelar el antes y después. Este bloque está listo para que agreguen sus propias fotografías.</p>
+        <p>Arrastra el control para explorar el proceso y el resultado. Este bloque está listo para que agregues tus propias fotografías.</p>
       </div>
       <div class="shell">
-        <!-- ESPACIOS DE FOTO: usar "before" y "after" en IMAGE_SLOTS dentro de assets/app.js. -->
+        <!-- ESPACIOS DE FOTO: usar "process" y "result" en IMAGE_SLOTS dentro de assets/app.js. -->
         <div class="comparison" data-comparison style="--comparison-position: 52%;">
-          <div class="media-slot comparison-base" data-media-slot="before" data-label="Foto antes del tratamiento"><span class="media-slot__tag">ANTES / 3:2</span></div>
+          <div class="media-slot comparison-base" data-media-slot="result" data-label="Resultado final del tratamiento en el vehículo"><span class="media-slot__tag">RESULTADO / 3:2</span></div>
           <div class="comparison-overlay" data-comparison-overlay>
-            <div class="media-slot comparison-after" data-media-slot="after" data-label="Foto después del tratamiento"><span class="media-slot__tag">DESPUÉS / 3:2</span></div>
+            <div class="media-slot comparison-after" data-media-slot="process" data-label="Proceso de detailing en el vehículo"><span class="media-slot__tag">PROCESO / 3:2</span></div>
           </div>
-          <span class="comparison-label comparison-label-left">ANTES</span><span class="comparison-label comparison-label-right">DESPUÉS</span>
+          <span class="comparison-label comparison-label-left">PROCESO</span><span class="comparison-label comparison-label-right">RESULTADO</span>
           <span class="comparison-line" aria-hidden="true"></span><span class="comparison-handle" aria-hidden="true">↔</span>
-          <input class="comparison-range" data-comparison-range type="range" min="0" max="100" value="52" aria-label="Comparar antes y después">
+          <input class="comparison-range" data-comparison-range type="range" min="0" max="100" value="52" aria-label="Comparar proceso y resultado">
         </div>
       </div>
     </section>
@@ -134,12 +132,22 @@ Nuestra propuesta integral para quienes buscan un tratamiento completo del vehí
         <div><p class="eyebrow eyebrow-light">GALERÍA</p><h2 id="gallery-title">La diferencia está en los detalles.</h2></div>
         <a class="text-link text-link-light" href="#agenda">Quiero resultados así <span aria-hidden="true">↗</span></a>
       </div>
-      <!-- ESPACIOS DE FOTO: "gallery-1" a "gallery-4". Hacer clic abre una vista ampliada. -->
-      <div class="shell gallery-grid">
-        <button class="gallery-item gallery-item-tall" type="button" data-gallery-item data-media-key="gallery-1" aria-label="Abrir detalle de pintura"><span class="media-slot" data-media-slot="gallery-1" data-label="Detalle de pintura con reflejo"><span class="media-slot__tag">Pintura / 4:5</span></span><span class="gallery-caption">Reflejos que se sienten nuevos <b>↗</b></span></button>
-        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-2" aria-label="Abrir detalle de interior"><span class="media-slot" data-media-slot="gallery-2" data-label="Interior limpio y acondicionado"><span class="media-slot__tag">Interior / 1:1</span></span><span class="gallery-caption">Interiores que invitan a volver <b>↗</b></span></button>
-        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-3" aria-label="Abrir detalle de rines"><span class="media-slot" data-media-slot="gallery-3" data-label="Detalle de rin protegido"><span class="media-slot__tag">Rines / 1:1</span></span><span class="gallery-caption">Acabados que hacen la diferencia <b>↗</b></span></button>
-        <button class="gallery-item gallery-item-wide" type="button" data-gallery-item data-media-key="gallery-4" aria-label="Abrir proceso de pulido"><span class="media-slot" data-media-slot="gallery-4" data-label="Proceso profesional de pulido"><span class="media-slot__tag">Proceso de pulido / 16:9</span></span><span class="gallery-caption">Precisión en cada etapa <b>↗</b></span></button>
+      <!-- Las fotos se configuran en IMAGE_SLOTS dentro de assets/app.js; al hacer clic se amplían. -->
+      <div class="shell gallery-grid" data-gallery-track>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-1" aria-label="Abrir detalle de pintura"><span class="media-slot" data-media-slot="gallery-1" data-label="Detalle de pintura con reflejo"><span class="media-slot__tag">Pintura</span></span><span class="gallery-caption">Reflejos que se sienten nuevos <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-2" aria-label="Abrir detalle de interior"><span class="media-slot" data-media-slot="gallery-2" data-label="Interior limpio y acondicionado"><span class="media-slot__tag">Interior</span></span><span class="gallery-caption">Interiores que invitan a volver <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-3" aria-label="Abrir detalle de motor"><span class="media-slot" data-media-slot="gallery-3" data-label="Motor detallado"><span class="media-slot__tag">Motor</span></span><span class="gallery-caption">Detallados que hacen la diferencia <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-4" aria-label="Abrir detalle de Volkswagen Vocho"><span class="media-slot" data-media-slot="gallery-4" data-label="Volkswagen Vocho detallado"><span class="media-slot__tag">Clásicos</span></span><span class="gallery-caption">Lavados premium <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-5" aria-label="Abrir detalle de asiento"><span class="media-slot" data-media-slot="gallery-5" data-label="Asiento limpio y acondicionado"><span class="media-slot__tag">Asientos</span></span><span class="gallery-caption">Cuidado en cada superficie <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-6" aria-label="Abrir detalle de Cadillac"><span class="media-slot" data-media-slot="gallery-6" data-label="Cadillac con acabado detallado"><span class="media-slot__tag">Acabado exterior</span></span><span class="gallery-caption">Un acabado que destaca <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-7" aria-label="Abrir detalle de Ford F-150"><span class="media-slot" data-media-slot="gallery-7" data-label="Ford F-150 después del lavado"><span class="media-slot__tag">Lavado premium</span></span><span class="gallery-caption">Lista para volver al camino <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-8" aria-label="Abrir detalle de interior Honda"><span class="media-slot" data-media-slot="gallery-8" data-label="Interior de Honda detallado"><span class="media-slot__tag">Interior</span></span><span class="gallery-caption">Limpieza que se nota <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-9" aria-label="Abrir detalle de Honda"><span class="media-slot" data-media-slot="gallery-9" data-label="Honda con exterior detallado"><span class="media-slot__tag">Exterior</span></span><span class="gallery-caption">Brillo renovado <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-10" aria-label="Abrir detalle de Nissan"><span class="media-slot" data-media-slot="gallery-10" data-label="Nissan con acabado detallado"><span class="media-slot__tag">Acabado exterior</span></span><span class="gallery-caption">El cuidado está en los detalles <b>↗</b></span></button>
+      </div>
+      <div class="shell gallery-controls" aria-label="Controles de galería">
+        <button class="gallery-control" type="button" data-gallery-prev aria-label="Ver fotos anteriores">←</button>
+        <button class="gallery-control" type="button" data-gallery-next aria-label="Ver fotos siguientes">→</button>
       </div>
     </section>
 
@@ -156,12 +164,12 @@ Nuestra propuesta integral para quienes buscan un tratamiento completo del vehí
     </section>
 
     <section class="blog-preview section-soft" id="blog" aria-labelledby="blog-title">
-      <div class="shell section-heading"><div><p class="eyebrow">APRENDE A CUIDARLO</p><h2 id="blog-title">Consejos que protegen tu inversión.</h2></div><p>Esta sección está lista para convertirse en el blog que fortalezca el SEO de la marca.</p></div>
+      <div class="shell section-heading"><div><p class="eyebrow">APRENDE A CUIDARLO</p><h2 id="blog-title">Consejos que protegen tu inversión.</h2></div><p>Descubre consejos, recomendaciones y buenas prácticas para cuidar tu automóvil, mantener su apariencia y conocer la importancia de un lavado adecuado.</p></div>
       <div class="shell article-grid">
-        <!-- Cambien los enlaces # por las entradas reales del blog cuando estén publicadas. -->
-        <a class="article-card" href="#"><span>GUÍA</span><h3>¿Por qué no todos los lavados son iguales?</h3><p>Conoce los hábitos que pueden marcar la diferencia en la pintura de tu auto.</p><b>Leer artículo →</b></a>
-        <a class="article-card" href="#"><span>CONSEJOS</span><h3>5 errores comunes al lavar un automóvil</h3><p>Pequeñas prácticas que conviene evitar para conservar el acabado.</p><b>Leer artículo →</b></a>
-        <a class="article-card" href="#"><span>EDUCACIÓN</span><h3>¿Pulido o corrección de pintura?</h3><p>Te ayudamos a entender cuál servicio necesita tu vehículo.</p><b>Leer artículo →</b></a>
+        <!-- Las entradas enlazadas abren su propia página; las demás se publicarán próximamente. -->
+        <a class="article-card" href="blog/por-que-no-todos-los-lavados-son-iguales.html"><span>GUÍA</span><h3>¿Por qué no todos los lavados son iguales?</h3><p>Conoce los hábitos que pueden marcar la diferencia en la pintura de tu auto.</p><b>Leer artículo →</b></a>
+        <a class="article-card" href="blog/5-errores-comunes-al-lavar-un-automovil.html"><span>CONSEJOS</span><h3>5 errores comunes al lavar un automóvil</h3><p>Pequeñas prácticas que conviene evitar para conservar el acabado.</p><b>Leer artículo →</b></a>
+        <a class="article-card" href="blog/pulido-o-correccion-de-pintura.html"><span>EDUCACIÓN</span><h3>¿Pulido o corrección de pintura?</h3><p>Te ayudamos a entender cuál servicio necesita tu vehículo.</p><b>Leer artículo →</b></a>
       </div>
     </section>
 
@@ -183,7 +191,7 @@ Nuestra propuesta integral para quienes buscan un tratamiento completo del vehí
         <!-- El formulario no requiere backend: al enviarlo abre WhatsApp con los datos capturados. Configuren el número en assets/app.js. -->
         <form class="booking-form" data-booking-form novalidate>
           <div class="form-row"><label>Nombre completo<input name="name" autocomplete="name" required placeholder="Tu nombre"></label><label>Teléfono<input name="phone" inputmode="tel" autocomplete="tel" required placeholder="662 000 0000"></label></div>
-          <div class="form-row"><label>Vehículo<input name="vehicle" required placeholder="Marca, modelo y año"></label><label>Servicio<select name="service" required><option value="" selected disabled>Selecciona una opción</option><option>JOY CARE</option><option>JOY INTERIOR</option><option>JOY RESTORE</option><option>JOY PROTECT</option><option>PRESTIGE</option><option>No estoy seguro, necesito asesoría</option></select></label></div>
+          <div class="form-row"><label>Vehículo<input name="vehicle" required placeholder="Marca, modelo y año"></label><label>Servicio<select name="service" required><option value="" selected disabled>Selecciona un servicio</option><optgroup label="JOY CARE"><option>JOY CARE ESSENTIAL</option><option>JOY CARE SIGNATURE</option></optgroup><optgroup label="JOY INTERIOR"><option>JOY INTERIOR SPA</option><option>JOY FABRIC SPA</option><option>JOY LEATHER SPA</option><option>JOY ODOR ELIMINATION</option><option>JOY AROMA PERMANENTE</option><option>JOY PET HAIR REMOVAL</option><option>JOY LIMPIEZA POR LAVADO DE ASIENTOS</option><option>JOY LAVADO DE ALFOMBRAS</option></optgroup><optgroup label="JOY RESTORE"><option>JOY PAINT REVIVAL</option><option>JOY PAINT CORRECTION</option><option>JOY HEADLIGHT REVIVAL</option><option>JOY ENGINE REVIVAL</option><option>JOY WHEEL REVIVAL</option></optgroup><optgroup label="JOY PROTECT"><option>JOY WAX PROTECTION</option><option>JOY GLASS SHIELD</option><option>JOY TIRE &amp; TRIM PROTECTION</option></optgroup><optgroup label="PRESTIGE"><option>JOY PRESTIGE DETAIL</option><option>JOY PRESTIGE CORRECTION</option></optgroup><option>No estoy seguro, necesito asesoría</option></select></label></div>
           <div class="form-row"><label>Fecha preferida<input name="date" type="date" required></label><label>Horario preferido<select name="time" required><option value="" selected disabled>Selecciona un horario</option><option>Por la mañana</option><option>Por la tarde</option><option>Necesito confirmar disponibilidad</option></select></label></div>
           <label>Comentarios<textarea name="comments" rows="3" placeholder="Cuéntanos qué te gustaría mejorar de tu vehículo."></textarea></label>
           <button class="button button-wide" type="submit">Solicitar disponibilidad <span aria-hidden="true">↗</span></button><p class="form-status" data-form-status aria-live="polite"></p>
@@ -203,7 +211,7 @@ Nuestra propuesta integral para quienes buscan un tratamiento completo del vehí
   </footer>
 
   <!-- Modal reutilizado por la galería. No editar salvo que se quiera cambiar su estructura. -->
-  <dialog class="gallery-dialog" data-gallery-dialog><button class="dialog-close" type="button" data-dialog-close aria-label="Cerrar fotografía">×</button><div class="media-slot dialog-media" data-dialog-media><span class="media-slot__tag" data-dialog-label>Detalle de galería</span></div></dialog>
+  <dialog class="gallery-dialog" data-gallery-dialog><button class="dialog-close" type="button" data-dialog-close aria-label="Cerrar fotografía">×</button><button class="dialog-nav dialog-nav-prev" type="button" data-dialog-prev aria-label="Ver fotografía anterior">←</button><div class="media-slot dialog-media" data-dialog-media><span class="media-slot__tag" data-dialog-label>Detalle de galería</span></div><button class="dialog-nav dialog-nav-next" type="button" data-dialog-next aria-label="Ver fotografía siguiente">→</button></dialog>
   <script src="assets/app.js"></script>
 </body>
 </html>
