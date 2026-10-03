@@ -64,6 +64,7 @@ const IMAGE_SLOTS = {
   "joy-protect": { src: "../X", alt: "Servicio JOY PROTECT en JOY AUTO SPA" },
   prestige: { src: "../X", alt: "Servicio PRESTIGE en JOY AUTO SPA" }
 };
+//actualizacion
 
 // Si cuentan con un video para la portada, coloquen la ruta aquí. Tiene prioridad sobre IMAGE_SLOTS.hero.
 const VIDEO_SLOTS = {
