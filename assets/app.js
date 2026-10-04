@@ -171,8 +171,8 @@ function renderSiteFooters() {
     footer.innerHTML = `
       <div class="shell footer-grid">
         <div><a class="brand brand-footer" href="${new URL("index.html#inicio", siteRoot).href}"><span class="brand-mark" aria-hidden="true">J</span><span><strong>JOY</strong><small>AUTO SPA</small></span></a><p>Detailing automotriz premium en Hermosillo, Sonora.</p></div>
-        <div><h2>Visítanos</h2><p>Ubicación por confirmar<br>Hermosillo, Sonora, México</p><a data-map-link href="#" target="_blank" rel="noopener noreferrer">Ver en Google Maps ↗</a></div>
-        <div><h2>Horario</h2><p>Lunes a viernes · 9:00–18:00<br>Sábados · 9:00–14:00<br>Domingos · Cerrado</p></div>
+        <div><h2>Servicio a domicilio</h2><p>Hermosillo, Sonora, México</p></div>
+        <div><h2>Horario</h2><p>Lunes a viernes · 9:00–18:00<br>Sábados · 9:00–15:00<br>Tardes de sábado y domingos: Solo urgencias con costo extra, acordado al contratar.</p></div>
         <div><h2>Contacto</h2><a data-whatsapp-direct href="#" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a data-email-link href="#">joyautospamx@gmail.com</a><nav class="social-links" aria-label="Redes sociales"></nav></div>
       </div>
       <div class="shell footer-bottom"><span>© <span data-year></span> JOY AUTO SPA. Todos los derechos reservados.</span><span>Hecho para cuidar lo que te mueve.</span></div>`;
