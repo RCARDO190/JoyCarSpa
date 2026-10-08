@@ -44,7 +44,7 @@ const IMAGE_SLOTS = {
   mobileSrc: "assets/images/joylogoya.png", // opcional: solo se usa en celular
   alt: "Proceso profesional de detailing automotriz",
 },
-  story: { src: "assets/images/Joy.jpeg", alt: "Motivacion JOY AUTO SPA trabajando" }, 
+  story: { src: "assets/images/joy.jpeg", alt: "Motivacion JOY AUTO SPA trabajando" }, 
   process: { src: "assets/images/procesoreal.jpeg", alt: "Proceso de detailing en el vehículo" },
   result: { src: "assets/images/despues.jpeg", alt: "Resultado final del tratamiento en el vehículo" },
   "gallery-1": { src: "assets/images/nissan gris.jpeg", alt: "Detalle de pintura con acabado brillante" },
