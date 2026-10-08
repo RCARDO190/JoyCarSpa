@@ -81,9 +81,11 @@
     <section class="story section" id="nosotros" aria-labelledby="story-title">
       <div class="shell story-grid">
         <!-- ESPACIO DE FOTO: equipo, instalación o detalle de proceso. Configurar "story" en assets/app.js. -->
-        <div class="media-slot story-image" data-media-slot="story" data-label="Fotografía del equipo de JOY AUTO SPA trabajando">
-          <span class="media-slot__tag">Foto de equipo / 4:5</span>
-        </div>
+        <button class="story-image-trigger" type="button" data-story-image aria-label="Ampliar fotografía de Joy trabajando en el interior de un vehículo">
+          <span class="media-slot story-image" data-media-slot="story" data-label="Joy trabajando en el interior de un vehículo">
+            <span class="media-slot__tag">Joy, nuestra inspiración</span>
+          </span>
+        </button>
         <div class="story-content">
           <p class="eyebrow">NUESTRA HISTORIA</p>
           <p class="story-phrase">Más que un nombre, una historia</p>
@@ -232,6 +234,9 @@
           <div class="form-row"><label>Vehículo<input name="vehicle" required placeholder="Marca, modelo y año"></label><label>Servicio<select name="service" required><option value="" selected disabled>Selecciona un servicio</option><optgroup label="JOY CARE"><option>JOY CARE ESSENTIAL</option><option>JOY CARE SIGNATURE</option></optgroup><optgroup label="JOY INTERIOR"><option>JOY INTERIOR SPA</option><option>JOY FABRIC SPA</option><option>JOY LEATHER SPA</option><option>JOY ODOR ELIMINATION</option><option>JOY AROMA PERMANENTE</option><option>JOY PET HAIR REMOVAL</option><option>JOY LIMPIEZA POR LAVADO DE ASIENTOS</option><option>JOY LAVADO DE ALFOMBRAS</option></optgroup><optgroup label="JOY RESTORE"><option>JOY PAINT REVIVAL</option><option>JOY PAINT CORRECTION</option><option>JOY HEADLIGHT REVIVAL</option><option>JOY ENGINE REVIVAL</option><option>JOY WHEEL REVIVAL</option></optgroup><optgroup label="JOY PROTECT"><option>JOY WAX PROTECTION</option><option>JOY GLASS SHIELD</option><option>JOY TIRE &amp; TRIM PROTECTION</option></optgroup><optgroup label="PRESTIGE"><option>JOY PRESTIGE DETAIL</option><option>JOY PRESTIGE CORRECTION</option></optgroup><option>No estoy seguro, necesito asesoría</option></select></label></div>
           <div class="form-row"><label>Fecha preferida<input name="date" type="date" required></label><label>Horario preferido<select name="time" required><option value="" selected disabled>Selecciona un horario</option><option>Por la mañana</option><option>Por la tarde</option><option>Necesito confirmar disponibilidad</option></select></label></div>
           <label>Comentarios<textarea name="comments" rows="3" placeholder="Cuéntanos qué te gustaría mejorar de tu vehículo."></textarea></label>
+          <div class="legal-consents">
+            <label class="legal-consent"><input name="legalConsent" type="checkbox" required><span>He leído el <a href="assets/legal/AVISO_PRIVACIDAD_JOY_AUTO_SPA.pdf" target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a> y conozco los <a href="assets/legal/TERMINOS_Y_CONDICIONES_JOY_AUTO_SPA.pdf" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a> de JOY AUTO SPA.</span></label>
+          </div>
           <button class="button button-wide" type="submit">Solicitar disponibilidad <span aria-hidden="true">↗</span></button><p class="form-status" data-form-status aria-live="polite"></p>
         </form>
       </div>

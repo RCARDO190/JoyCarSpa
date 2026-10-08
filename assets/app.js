@@ -16,7 +16,7 @@
 const SITE_CONFIG = {
   // Escribir solo números con código de país, sin +, espacios ni guiones.
   // Ejemplo para México: "526621234567". Se deja vacío para evitar enviar mensajes a un número de muestra.
-  whatsappNumber: "526623274366",
+  whatsappNumber: "526629489465",
   email: "joyautospamx@gmail.com",
   // Pueden pegar aquí el enlace de Google Maps de la sucursal.
   mapsUrl: "",
@@ -44,7 +44,7 @@ const IMAGE_SLOTS = {
   mobileSrc: "assets/images/joylogoya.png", // opcional: solo se usa en celular
   alt: "Proceso profesional de detailing automotriz",
 },
-  story: { src: "assets/images/equipo.png", alt: "Equipo de JOY AUTO SPA trabajando" },
+  story: { src: "assets/images/joy.jpeg", alt: "Equipo de JOY AUTO SPA trabajando" }, 
   process: { src: "assets/images/procesoreal.jpeg", alt: "Proceso de detailing en el vehículo" },
   result: { src: "assets/images/despues.jpeg", alt: "Resultado final del tratamiento en el vehículo" },
   "gallery-1": { src: "assets/images/nissan gris.jpeg", alt: "Detalle de pintura con acabado brillante" },
@@ -174,6 +174,7 @@ function renderSiteFooters() {
         <div><h2>Servicio a domicilio</h2><p>Hermosillo, Sonora, México</p></div>
         <div><h2>Horario</h2><p>Lunes a viernes · 9:00–18:00<br>Sábados · 9:00–15:00<br>Tardes de sábado y domingos: Solo urgencias con costo extra, acordado al contratar.</p></div>
         <div><h2>Contacto</h2><a data-whatsapp-direct href="#" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a data-email-link href="#">joyautospamx@gmail.com</a><nav class="social-links" aria-label="Redes sociales"></nav></div>
+        <div><h2>Legales</h2><a href="${new URL("assets/legal/AVISO_PRIVACIDAD_JOY_AUTO_SPA.pdf", siteRoot).href}" target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a><a href="${new URL("assets/legal/TERMINOS_Y_CONDICIONES_JOY_AUTO_SPA.pdf", siteRoot).href}" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a></div>
       </div>
       <div class="shell footer-bottom"><span>© <span data-year></span> JOY AUTO SPA. Todos los derechos reservados.</span><span>Hecho para cuidar lo que te mueve.</span></div>`;
     const socialContainer = footer.querySelector(".social-links");
@@ -340,7 +341,7 @@ function setupBookingForm() {
     event.preventDefault();
     const status = form.querySelector("[data-form-status]");
     if (!form.reportValidity()) {
-      status.textContent = "Por favor completa los campos obligatorios.";
+      status.textContent = "Por favor completa los campos obligatorios y acepta los documentos legales.";
       return;
     }
 
@@ -409,9 +410,14 @@ function setupGallery() {
   if (!dialog || !dialogMedia) return;
 
   const items = [...document.querySelectorAll("[data-gallery-item]")];
+  const storyImage = document.querySelector("[data-story-image]");
+  const dialogNavigation = [...dialog.querySelectorAll("[data-dialog-prev], [data-dialog-next]")];
   let activeIndex = 0;
+  let showingStoryImage = false;
 
   const showItem = (index) => {
+    showingStoryImage = false;
+    dialogNavigation.forEach((button) => { button.hidden = false; });
     activeIndex = (index + items.length) % items.length;
     const item = items[activeIndex];
     const source = item.querySelector("[data-media-slot]");
@@ -425,11 +431,23 @@ function setupGallery() {
       dialog.showModal();
     });
   });
+  storyImage?.addEventListener("click", () => {
+    showingStoryImage = true;
+    dialogNavigation.forEach((button) => { button.hidden = true; });
+    dialogMedia.dataset.label = storyImage.querySelector("[data-media-slot]")?.dataset.label || "Fotografía de Joy";
+    renderMediaSlot(dialogMedia, "story");
+    dialog.showModal();
+  });
   dialog.querySelector("[data-dialog-prev]")?.addEventListener("click", () => showItem(activeIndex - 1));
   dialog.querySelector("[data-dialog-next]")?.addEventListener("click", () => showItem(activeIndex + 1));
   dialog.querySelector("[data-dialog-close]")?.addEventListener("click", () => dialog.close());
+  dialog.addEventListener("close", () => {
+    showingStoryImage = false;
+    dialogNavigation.forEach((button) => { button.hidden = false; });
+  });
   dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
   dialog.addEventListener("keydown", (event) => {
+    if (showingStoryImage) return;
     if (event.key === "ArrowLeft") {
       event.preventDefault();
       showItem(activeIndex - 1);
