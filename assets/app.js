@@ -16,10 +16,14 @@
 const SITE_CONFIG = {
   // Escribir solo números con código de país, sin +, espacios ni guiones.
   // Ejemplo para México: "526621234567". Se deja vacío para evitar enviar mensajes a un número de muestra.
-  whatsappNumber: "526623274366",
+  whatsappNumber: "526629489465",
   email: "joyautospamx@gmail.com",
-  // Pueden pegar aquí el enlace de Google Maps de la sucursal.
-  mapsUrl: "",
+  // Para mostrar un logo, indiquen su ruta dentro de assets/images en el campo logo.
+  socials: [
+    { label: "Instagram", text: "IG", url: "https://www.instagram.com/joyautospa/", logo: "assets/images/iglogo.png" },
+    { label: "Facebook", text: "FB", url: "https://www.facebook.com/profile.php?id=61592713452634", logo: "assets/images/fblogo.png" },
+    { label: "TikTok", text: "TT", url: "https://www.tiktok.com/@joyautospa", logo: "assets/images/tiktokfb.png" },
+  ],
   // Logo real de la marca: peguen aquí la ruta de la imagen (ej. "assets/images/logo.png")
   // y guarden el archivo dentro de assets/images. Mientras quede vacío, se sigue mostrando
   // la "J" como marcador temporal en el encabezado y el pie de página.
@@ -27,7 +31,7 @@ const SITE_CONFIG = {
     src: "assets/images/joylogoya.png",
     alt: "JOY AUTO SPA",
     height: 50, // Alto del logo en píxeles. Súbanlo o bájenlo hasta que se vea del tamaño correcto junto al texto.
-    offsetY: -55, // Ajuste fino vertical en píxeles (ej. -3 sube el logo, 3 lo baja) por si la imagen no queda centrada con el texto.
+    offsetY: 0, // Ajuste fino vertical en píxeles por si la imagen no queda centrada con el texto.
   },
 };
 
@@ -35,34 +39,158 @@ const SITE_CONFIG = {
 const IMAGE_SLOTS = {
   hero: {
   src: "assets/images/joy portada 2.jpeg",              // la foto normal (PC y tablet)
-  mobileSrc: "assets/images/fondomobile.png", // opcional: solo se usa en celular
+  mobileSrc: "assets/images/joylogoya.png", // opcional: solo se usa en celular
   alt: "Proceso profesional de detailing automotriz",
 },
-  story: { src: "assets/images/lavado.jpg", alt: "Equipo de JOY AUTO SPA trabajando" },
-  before: { src: "assets/images/Gemini_Generated_Image_k33auxk33auxk33a.png", alt: "Vehículo antes del tratamiento" },
-  after: { src: "assets/images/sucio.jpg", alt: "Vehículo después del tratamiento" },
-  "gallery-1": { src: "assets/images/lavado.jpg", alt: "Detalle de pintura con acabado brillante" },
-  "gallery-2": { src: "assets/images/lavado.jpg", alt: "Interior limpio y acondicionado" },
-  "gallery-3": { src: "assets/images/lavado.jpg", alt: "Rines con acabado protegido" },
-  "gallery-4": { src: "assets/images/lavado.jpg", alt: "Proceso de corrección de pintura" },
-  // Fotos principales de las páginas individuales de servicio.
-  "joy-care": { src: "assets/images/lavado.jpg", alt: "Servicio JOY CARE en JOY AUTO SPA" },
-  "joy-interior": { src: "assets/images/lavado.jpg", alt: "Servicio JOY INTERIOR en JOY AUTO SPA" },
-  "joy-restore": { src: "assets/images/lavado.jpg", alt: "Servicio JOY RESTORE en JOY AUTO SPA" },
-  "joy-protect": { src: "assets/images/lavado.jpg", alt: "Servicio JOY PROTECT en JOY AUTO SPA" },
-  prestige: { src: "assets/images/lavado.jpg", alt: "Servicio PRESTIGE en JOY AUTO SPA" },
-  // Galerías de cada tratamiento. Pueden dejar cualquier espacio vacío mientras consiguen la foto.
-  "joy-care-1": { src: "assets/images/lavado.jpg", alt: "Lavado seguro de JOY CARE" }, "joy-care-2": { src: "", alt: "Acabado de JOY CARE" }, "joy-care-3": { src: "", alt: "Detalle de JOY CARE" },
-  "joy-interior-1": { src: "assets/images/lavado.jpg", alt: "Limpieza de JOY INTERIOR" }, "joy-interior-2": { src: "", alt: "Detalle de JOY INTERIOR" }, "joy-interior-3": { src: "", alt: "Acabado de JOY INTERIOR" },
-  "joy-restore-1": { src: "assets/images/lavado.jpg", alt: "Corrección de JOY RESTORE" }, "joy-restore-2": { src: "", alt: "Proceso de JOY RESTORE" }, "joy-restore-3": { src: "", alt: "Reflejo de JOY RESTORE" },
-  "joy-protect-1": { src: "assets/images/lavado.jpg", alt: "Aplicación de JOY PROTECT" }, "joy-protect-2": { src: "", alt: "Protección de JOY PROTECT" }, "joy-protect-3": { src: "", alt: "Acabado de JOY PROTECT" },
-  "prestige-1": { src: "assets/images/lavado.jpg", alt: "Preparación PRESTIGE" }, "prestige-2": { src: "", alt: "Proceso PRESTIGE" }, "prestige-3": { src: "", alt: "Resultado PRESTIGE" },
+  story: { src: "assets/images/elesjoy.jpeg", alt: "Motivacion JOY AUTO SPA trabajando" }, 
+  process: { src: "assets/images/procesoreal.jpeg", alt: "Proceso de detailing en el vehículo" },
+  result: { src: "assets/images/despues.jpeg", alt: "Resultado final del tratamiento en el vehículo" },
+  "gallery-1": { src: "assets/images/nissan gris.jpeg", alt: "Detalle de pintura con acabado brillante" },
+  "gallery-2": { src: "assets/images/honda interior frontal.jpeg", alt: "Interior limpio y acondicionado" },
+  "gallery-3": { src: "assets/images/motor.jpeg", alt: "Motor detallado" },
+  "gallery-4": { src: "assets/images/vocho.png", alt: "Detallado automotriz" },
+  "gallery-5": { src: "assets/images/asiento.jpeg", alt: "Asiento limpio y acondicionado" },
+  "gallery-6": { src: "assets/images/cadillac.jpeg", alt: "Cadillac con acabado detallado" },
+  "gallery-7": { src: "assets/images/ford f150.jpeg", alt: "Ford F-150 después del lavado" },
+  "gallery-8": { src: "assets/images/honda interior.png", alt: "Interior de Honda detallado" },
+  "gallery-9": { src: "assets/images/honda negro frontal.png", alt: "Honda con exterior detallado" },
+  "gallery-10": { src: "assets/images/nissan gris frontal.png", alt: "Nissan con acabado detallado" },
 };
 
 // Si cuentan con un video para la portada, coloquen la ruta aquí. Tiene prioridad sobre IMAGE_SLOTS.hero.
 const VIDEO_SLOTS = {
   hero: { src: "", poster: "", ariaLabel: "Video de procesos de JOY AUTO SPA" },
 };
+
+function getSiteRoot() {
+  const appScript = [...document.scripts].find((script) => new URL(script.src).pathname.endsWith("/assets/app.js"));
+  return appScript ? new URL("../", appScript.src) : new URL("./", document.baseURI);
+}
+
+class SiteHeader {
+  constructor(mountPoint, siteRoot) {
+    this.mountPoint = mountPoint;
+    this.siteRoot = siteRoot;
+  }
+
+  indexUrl(section) {
+    const url = new URL("index.html", this.siteRoot);
+    url.hash = section;
+    return url.href;
+  }
+
+  render() {
+    const header = document.createElement("header");
+    header.className = "site-header";
+    header.dataset.header = "";
+
+    const shell = document.createElement("div");
+    shell.className = "shell header-inner";
+
+    const brand = document.createElement("a");
+    brand.className = "brand";
+    brand.href = this.indexUrl("inicio");
+    brand.setAttribute("aria-label", "JOY AUTO SPA, inicio");
+    const brandMark = document.createElement("span");
+    brandMark.className = "brand-mark";
+    brandMark.setAttribute("aria-hidden", "true");
+    brandMark.textContent = "J";
+    const brandName = document.createElement("span");
+    const brandTitle = document.createElement("strong");
+    brandTitle.textContent = "JOY";
+    const brandSubtitle = document.createElement("small");
+    brandSubtitle.textContent = "AUTO SPA";
+    brandName.append(brandTitle, brandSubtitle);
+    brand.append(brandMark, brandName);
+
+    const toggle = document.createElement("button");
+    toggle.className = "menu-toggle";
+    toggle.type = "button";
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-controls", "main-nav");
+    toggle.dataset.menuToggle = "";
+    const toggleLabel = document.createElement("span");
+    toggleLabel.className = "sr-only";
+    toggleLabel.textContent = "Abrir menú";
+    const firstLine = document.createElement("i");
+    const secondLine = document.createElement("i");
+    firstLine.setAttribute("aria-hidden", "true");
+    secondLine.setAttribute("aria-hidden", "true");
+    toggle.append(toggleLabel, firstLine, secondLine);
+
+    const nav = document.createElement("nav");
+    nav.className = "main-nav";
+    nav.id = "main-nav";
+    nav.setAttribute("aria-label", "Navegación principal");
+    nav.dataset.nav = "";
+    [["Inicio", "inicio"], ["Servicios", "servicios"], ["Nosotros", "nosotros"], ["Galería", "galeria"], ["Blog", "blog"], ["Contacto", "contacto"]].forEach(([label, section]) => {
+      const link = document.createElement("a");
+      link.href = this.indexUrl(section);
+      link.textContent = label;
+      nav.append(link);
+    });
+
+    const bookingLink = document.createElement("a");
+    bookingLink.className = "button button-small";
+    bookingLink.href = this.indexUrl("agenda");
+    bookingLink.append(document.createTextNode("Agenda tu cita "));
+    const arrow = document.createElement("span");
+    arrow.setAttribute("aria-hidden", "true");
+    arrow.textContent = "↗";
+    bookingLink.append(arrow);
+    nav.append(bookingLink);
+
+    shell.append(brand, toggle, nav);
+    header.append(shell);
+    this.mountPoint.replaceWith(header);
+  }
+}
+
+function renderSiteHeaders() {
+  const siteRoot = getSiteRoot();
+  document.querySelectorAll("[data-site-header]").forEach((mountPoint) => {
+    new SiteHeader(mountPoint, siteRoot).render();
+  });
+}
+
+function renderSiteFooters() {
+  const siteRoot = getSiteRoot();
+  document.querySelectorAll("[data-site-footer]").forEach((mountPoint) => {
+    const footer = document.createElement("footer");
+    footer.className = "site-footer";
+    footer.id = "contacto";
+    footer.innerHTML = `
+      <div class="shell footer-grid">
+        <div><a class="brand brand-footer" href="${new URL("index.html#inicio", siteRoot).href}"><span class="brand-mark" aria-hidden="true">J</span><span><strong>JOY</strong><small>AUTO SPA</small></span></a><p>Detailing automotriz premium en Hermosillo, Sonora.</p></div>
+        <div><h2>Servicio a domicilio</h2><p>Hermosillo, Sonora, México</p></div>
+        <div><h2>Horario</h2><p>Lunes a viernes · 9:00–18:00<br>Sábados · 9:00–15:00<br>Tardes de sábado y domingos: Solo urgencias con costo extra, acordado al contratar.</p></div>
+        <div><h2>Contacto</h2><a data-whatsapp-direct href="#" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a data-email-link href="#">joyautospamx@gmail.com</a><nav class="social-links" aria-label="Redes sociales"></nav></div>
+        <div><h2>Legales</h2><a href="${new URL("assets/legal/JOY-LEG-001 AVISO DE PRIVACIDAD .pdf", siteRoot).href}" target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a><a href="${new URL("assets/legal/JOY-LEG-002 TERMINOS Y CONDICIONES .pdf", siteRoot).href}" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a></div>
+      </div>
+      <div class="shell footer-bottom"><span>© <span data-year></span> JOY AUTO SPA. Todos los derechos reservados.</span><span>Hecho para cuidar lo que te mueve.</span></div>`;
+    const socialContainer = footer.querySelector(".social-links");
+    SITE_CONFIG.socials.forEach(({ label, text, url, logo }) => {
+      const link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.setAttribute("aria-label", `${label} de JOY AUTO SPA`);
+
+      if (logo) {
+        const image = document.createElement("img");
+        image.className = "social-logo";
+        image.src = new URL(logo, siteRoot).href;
+        image.alt = "";
+        link.append(image);
+      } else {
+        link.textContent = text;
+      }
+
+      socialContainer.append(link);
+    });
+    mountPoint.replaceWith(footer);
+  });
+}
 
 /** Crea una imagen, video o placeholder dentro de cualquier espacio de medios. */
 function renderMediaSlot(slot, key) {
@@ -127,11 +255,14 @@ function renderAllMedia() {
 /** Sustituye la "J" por el logo real (SITE_CONFIG.logo) en el encabezado y el pie de página de cualquier página. */
 function renderBrandLogo() {
   if (!SITE_CONFIG.logo.src) return; // Sin logo configurado: se conserva la "J" como marcador temporal.
+  const siteRoot = getSiteRoot();
+  const logoSource = new URL(SITE_CONFIG.logo.src, siteRoot).href;
   document.querySelectorAll(".brand-mark").forEach((mark) => {
     mark.replaceChildren();
     const logoImage = document.createElement("img");
-    logoImage.src = SITE_CONFIG.logo.src;
+    logoImage.src = logoSource;
     logoImage.alt = SITE_CONFIG.logo.alt || "";
+    logoImage.style.height = `${SITE_CONFIG.logo.height}px`;
     mark.append(logoImage);
     mark.classList.add("has-logo");
     mark.style.height = `${SITE_CONFIG.logo.height}px`;
@@ -166,16 +297,6 @@ function configureContactLinks() {
     link.textContent = SITE_CONFIG.email;
   });
 
-  document.querySelectorAll("[data-map-link]").forEach((link) => {
-    if (SITE_CONFIG.mapsUrl) link.href = SITE_CONFIG.mapsUrl;
-    link.addEventListener("click", (event) => {
-      if (!SITE_CONFIG.mapsUrl) {
-        event.preventDefault();
-        showToast("Agrega el enlace real de Google Maps en assets/app.js para activar este botón.");
-      }
-    });
-  });
-
   document.querySelectorAll("[data-whatsapp-direct]").forEach((link) => {
     link.addEventListener("click", (event) => {
       const url = buildWhatsappUrl("Hola, quiero información sobre los servicios de JOY AUTO SPA.");
@@ -201,7 +322,7 @@ function setupBookingForm() {
     event.preventDefault();
     const status = form.querySelector("[data-form-status]");
     if (!form.reportValidity()) {
-      status.textContent = "Por favor completa los campos obligatorios.";
+      status.textContent = "Por favor completa los campos obligatorios y acepta los documentos legales.";
       return;
     }
 
@@ -269,29 +390,76 @@ function setupGallery() {
   const dialogMedia = dialog?.querySelector("[data-dialog-media]");
   if (!dialog || !dialogMedia) return;
 
-  document.querySelectorAll("[data-gallery-item]").forEach((item) => {
+  const items = [...document.querySelectorAll("[data-gallery-item]")];
+  const storyImage = document.querySelector("[data-story-image]");
+  const dialogNavigation = [...dialog.querySelectorAll("[data-dialog-prev], [data-dialog-next]")];
+  let activeIndex = 0;
+  let showingStoryImage = false;
+
+  const showItem = (index) => {
+    showingStoryImage = false;
+    dialogNavigation.forEach((button) => { button.hidden = false; });
+    activeIndex = (index + items.length) % items.length;
+    const item = items[activeIndex];
+    const source = item.querySelector("[data-media-slot]");
+    dialogMedia.dataset.label = source?.dataset.label || "Detalle de galería";
+    renderMediaSlot(dialogMedia, item.dataset.mediaKey);
+  };
+
+  items.forEach((item, index) => {
     item.addEventListener("click", () => {
-      const key = item.dataset.mediaKey;
-      const source = item.querySelector("[data-media-slot]");
-      dialogMedia.dataset.label = source?.dataset.label || "Detalle de galería";
-      renderMediaSlot(dialogMedia, key);
+      showItem(index);
       dialog.showModal();
     });
   });
+  storyImage?.addEventListener("click", () => {
+    showingStoryImage = true;
+    dialogNavigation.forEach((button) => { button.hidden = true; });
+    dialogMedia.dataset.label = storyImage.querySelector("[data-media-slot]")?.dataset.label || "Fotografía de Joy";
+    renderMediaSlot(dialogMedia, "story");
+    dialog.showModal();
+  });
+  dialog.querySelector("[data-dialog-prev]")?.addEventListener("click", () => showItem(activeIndex - 1));
+  dialog.querySelector("[data-dialog-next]")?.addEventListener("click", () => showItem(activeIndex + 1));
   dialog.querySelector("[data-dialog-close]")?.addEventListener("click", () => dialog.close());
+  dialog.addEventListener("close", () => {
+    showingStoryImage = false;
+    dialogNavigation.forEach((button) => { button.hidden = false; });
+  });
   dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
+  dialog.addEventListener("keydown", (event) => {
+    if (showingStoryImage) return;
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      showItem(activeIndex - 1);
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      showItem(activeIndex + 1);
+    }
+  });
 }
 
-function setupServicePage() {
-  const page = document.body.dataset.service;
-  if (!page) return;
-  // La imagen principal de cada página de servicio se configura igual que las demás imágenes.
-  const heroSlot = document.querySelector("[data-service-hero]");
-  if (heroSlot) renderMediaSlot(heroSlot, page);
+function setupGalleryCarousel() {
+  const track = document.querySelector("[data-gallery-track]");
+  const previous = document.querySelector("[data-gallery-prev]");
+  const next = document.querySelector("[data-gallery-next]");
+  if (!track || !previous || !next) return;
+
+  const updateControls = () => {
+    previous.disabled = track.scrollLeft <= 0;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+  };
+  previous.addEventListener("click", () => track.scrollBy({ left: -track.clientWidth * 0.8 }));
+  next.addEventListener("click", () => track.scrollBy({ left: track.clientWidth * 0.8 }));
+  track.addEventListener("scroll", updateControls, { passive: true });
+  window.addEventListener("resize", updateControls);
+  updateControls();
 }
 
 // Arranque centralizado: mantengan aquí los módulos nuevos si agregan funcionalidades.
 document.addEventListener("DOMContentLoaded", () => {
+  renderSiteHeaders();
+  renderSiteFooters();
   renderAllMedia();
   renderBrandLogo();
   configureContactLinks();
@@ -299,6 +467,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupBookingForm();
   setupComparison();
   setupGallery();
-  setupServicePage();
+  setupGalleryCarousel();
   document.querySelectorAll("[data-year]").forEach((node) => { node.textContent = new Date().getFullYear(); });
 });

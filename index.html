@@ -11,30 +11,7 @@
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
-
-  <!-- Barra superior: el nombre y el monograma son un reemplazo temporal del logo oficial. -->
-  <header class="site-header" data-header>
-    <div class="shell header-inner">
-      <a class="brand" href="#inicio" aria-label="JOY AUTO SPA, inicio">
-        <span class="brand-mark" aria-hidden="true">J</span>
-        <span><strong>JOY</strong><small>AUTO SPA</small></span>
-      </a>
-
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
-        <span class="sr-only">Abrir menú</span><i></i><i></i>
-      </button>
-
-      <nav class="main-nav" id="main-nav" aria-label="Navegación principal" data-nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#galeria">Galería</a>
-        <a href="#blog">Blog</a>
-        <a href="#contacto">Contacto</a>
-        <a class="button button-small" href="#agenda">Agenda tu cita <span aria-hidden="true">↗</span></a>
-      </nav>
-    </div>
-  </header>
+  <div data-site-header></div>
 
   <main id="contenido">
     <section class="hero" id="inicio">
@@ -47,10 +24,10 @@
         <span class="media-slot__tag">Video principal / 16:9</span>
       </div>
       <div class="hero-shade"></div>
-      <div class="shell hero-content reveal">
+      <div class="shell hero-content">
         <p class="eyebrow eyebrow-light">DETAILING AUTOMOTRIZ · HERMOSILLO</p>
-        <h1>Tu auto no solo se lava.<br><em>Se cuida.</em></h1>
-        <p class="hero-copy">Tratamientos profesionales para preservar el brillo, la comodidad y el valor de tu vehículo.</p>
+        <h1>Lavado profesional a domicilio.<br></h1>
+        <p class="hero-copy">Tratamientos profesionales para preservar el brillo, la comodidad y el valor de tu vehículo desde donde estés.</p>
         <div class="button-row">
           <a class="button" href="#agenda">Agenda tu cita <span aria-hidden="true">↗</span></a>
           <a class="text-link text-link-light" href="#servicios">Conoce nuestros servicios <span aria-hidden="true">↓</span></a>
@@ -83,19 +60,19 @@
         <!-- Cada tarjeta lleva a una página individual para facilitar el posicionamiento SEO. -->
         <div class="service-grid">
           <a class="service-card" href="services/joy-care.html">
-            <span class="service-card__number">01</span><h3>JOY CARE</h3><p>Mantenimiento exterior e interior para conservar tu auto impecable.</p><span class="service-card__link">Ver tratamiento <b>→</b></span>
+            <span class="service-card__number">01</span><h3>JOY CARE</h3><p>Servicios para conservar el vehículo limpio, presentable y en buenas condiciones de mantenimiento.</p><span class="service-card__link">Ver tratamientos <b>→</b></span>
           </a>
           <a class="service-card" href="services/joy-interior.html">
-            <span class="service-card__number">02</span><h3>JOY INTERIOR</h3><p>Limpieza profunda para recuperar la sensación de estrenar cabina.</p><span class="service-card__link">Ver tratamiento <b>→</b></span>
+            <span class="service-card__number">02</span><h3>JOY INTERIOR</h3><p>Servicios especializados para recuperar la limpieza, higiene, presentación y confort del interior.</p><span class="service-card__link">Ver tratamientos <b>→</b></span>
           </a>
           <a class="service-card" href="services/joy-restore.html">
-            <span class="service-card__number">03</span><h3>JOY RESTORE</h3><p>Corrección especializada para devolver profundidad y claridad.</p><span class="service-card__link">Ver tratamiento <b>→</b></span>
+            <span class="service-card__number">03</span><h3>JOY RESTORE</h3><p>Servicios orientados a recuperar acabados, corregir deterioros estéticos y mejorar significativamente la presentación del vehículo.</p><span class="service-card__link">Ver tratamiento <b>→</b></span>
           </a>
           <a class="service-card" href="services/joy-protect.html">
-            <span class="service-card__number">04</span><h3>JOY PROTECT</h3><p>Protección duradera para pintura, rines, interiores y cristales.</p><span class="service-card__link">Ver tratamiento <b>→</b></span>
+            <span class="service-card__number">04</span><h3>JOY PROTECT</h3><p>Servicios destinados a proteger superficies y facilitar el mantenimiento posterior.</p><span class="service-card__link">Ver tratamiento <b>→</b></span>
           </a>
           <a class="service-card service-card-featured" href="services/prestige.html">
-            <span class="service-card__number">05</span><h3>PRESTIGE</h3><p>Una experiencia integral para vehículos que merecen lo extraordinario.</p><span class="service-card__link">Descubrir Prestige <b>→</b></span>
+            <span class="service-card__number">05</span><h3>PRESTIGE</h3><p>Detallado integral de máximo nivel. Nuestra propuesta integral para quienes buscan un tratamiento completo del vehículo, combinando diferentes procesos especializados.</p><span class="service-card__link">Descubrir Prestige <b>→</b></span>
           </a>
         </div>
       </div>
@@ -104,17 +81,57 @@
     <section class="story section" id="nosotros" aria-labelledby="story-title">
       <div class="shell story-grid">
         <!-- ESPACIO DE FOTO: equipo, instalación o detalle de proceso. Configurar "story" en assets/app.js. -->
-        <div class="media-slot story-image" data-media-slot="story" data-label="Fotografía del equipo de JOY AUTO SPA trabajando">
-          <span class="media-slot__tag">Foto de equipo / 4:5</span>
-        </div>
+        <button class="story-image-trigger" type="button" data-story-image aria-label="Ampliar fotografía de Joy">
+          <span class="media-slot story-image" data-media-slot="story" data-label="Joy trabajando en el interior de un vehículo">
+            <span class="media-slot__tag">Joy, nuestra inspiración</span>
+          </span>
+        </button>
         <div class="story-content">
           <p class="eyebrow">NUESTRA HISTORIA</p>
-          <h2 id="story-title">Pasión por los autos. Respeto por cada cliente.</h2>
-          <p>JOY AUTO SPA nació para demostrar que el cuidado automotriz puede sentirse diferente: honesto, preciso y verdaderamente personalizado.</p>
-          <p>No buscamos atender más vehículos a toda prisa. Preferimos entender qué necesita cada uno y ejecutar cada paso con la paciencia que exige un acabado excepcional.</p>
-          <div class="values-list" aria-label="Valores de JOY AUTO SPA">
-            <span>Calidad sin atajos</span><span>Comunicación clara</span><span>Atención al detalle</span>
+          <p class="story-phrase">Más que un nombre, una historia</p>
+          <h2 id="story-title">Un legado que vive en cada detalle.</h2>
+          <p>JOY era el apodo de mi padre. Su fortaleza, alegría de vivir, calidad humana y manera de hacer sentir bien a quienes lo rodeaban dejaron una huella profunda en nuestra familia.</p>
+          <p>Elegimos su nombre para mantener vivo su recuerdo a través de un proyecto construido con esfuerzo, honestidad, dedicación y pasión por hacer las cosas bien. Cada vehículo que cuidamos y cada persona que atendemos son una oportunidad de honrar ese legado.</p>
+          <p>JOY AUTO SPA nació para cuidar vehículos, servir a las personas y construir una experiencia que transmita tranquilidad: la certeza de que tu auto está en buenas manos.</p>
+          <blockquote class="story-dedication">“En memoria de JOY, cuya alegría de vivir, fortaleza y calidad humana inspiran cada detalle de esta empresa.”</blockquote>
+        </div>
+      </div>
+      <div class="shell story-principles">
+        <div class="story-purpose-grid">
+          <article class="story-purpose">
+            <p class="eyebrow">NUESTRA MISIÓN</p>
+            <h3>Cuidar con profesionalismo y sentido humano.</h3>
+            <p>Brindamos servicios profesionales de cuidado y detallado automotriz mediante procesos estandarizados, atención personalizada y un compromiso permanente con la excelencia.</p>
+            <p>Trabajamos con honestidad, respeto y responsabilidad. Queremos que cada cliente se sienta escuchado, valorado y seguro de haber puesto su vehículo en buenas manos; así construimos relaciones duraderas y honramos el nombre de JOY.</p>
+          </article>
+          <article class="story-purpose">
+            <p class="eyebrow">NUESTRA VISIÓN</p>
+            <h3>Crecer sin perder aquello que nos define.</h3>
+            <p>Queremos ser referentes en detallado automotriz móvil en Hermosillo, reconocidos por la calidad del trabajo, la excelencia de los procesos y la confianza de nuestros clientes.</p>
+            <p>Buscamos crecer con nuevas unidades móviles y, en el futuro, abrir un Auto Spa físico; después, llegar a nuevas ciudades y generar oportunidades de empleo, manteniendo siempre nuestros estándares y filosofía de servicio.</p>
+          </article>
+        </div>
+        <div class="story-values">
+          <div class="story-values-heading">
+            <p class="eyebrow">LO QUE NOS DEFINE</p>
+            <h3>Nuestros valores.</h3>
           </div>
+          <dl class="story-values-list">
+            <div><dt>Profesionalismo</dt></div>
+            <div><dt>Honestidad</dt></div>
+            <div><dt>Honradez</dt></div>
+            <div><dt>Excelencia</dt></div>
+            <div><dt>Atención al detalle</dt></div>
+            <div><dt>Empatía</dt></div>
+            <div><dt>Respeto</dt></div>
+            <div><dt>Compromiso</dt></div>
+            <div><dt>Trabajo en equipo</dt></div>
+            <div><dt>Gratitud</dt></div>
+          </dl>
+        </div>
+        <div class="story-signoff" aria-label="Principios de JOY AUTO SPA">
+          <p>“Cuidamos tu vehículo como si fuera propio”</p>
+          <p class="story-signoff-main">Cuidamos tu vehículo. Valoramos tu confianza. Honramos nuestro nombre.</p>
         </div>
       </div>
     </section>
@@ -122,18 +139,18 @@
     <section class="comparison-section section-soft" aria-labelledby="comparison-title">
       <div class="shell comparison-top">
         <div><p class="eyebrow">EL CAMBIO SE NOTA</p><h2 id="comparison-title">Resultados que hablan por sí solos.</h2></div>
-        <p>Arrastra el control para revelar el antes y después. Este bloque está listo para que agreguen sus propias fotografías.</p>
+        <p>Arrastra el control para explorar el proceso y el resultado. Este bloque está listo para que agregues tus propias fotografías.</p>
       </div>
       <div class="shell">
-        <!-- ESPACIOS DE FOTO: usar "before" y "after" en IMAGE_SLOTS dentro de assets/app.js. -->
+        <!-- ESPACIOS DE FOTO: usar "process" y "result" en IMAGE_SLOTS dentro de assets/app.js. -->
         <div class="comparison" data-comparison style="--comparison-position: 52%;">
-          <div class="media-slot comparison-base" data-media-slot="before" data-label="Foto antes del tratamiento"><span class="media-slot__tag">ANTES / 3:2</span></div>
-          <div class="comparison-overlay" data-comparison-overlay>
-            <div class="media-slot comparison-after" data-media-slot="after" data-label="Foto después del tratamiento"><span class="media-slot__tag">DESPUÉS / 3:2</span></div>
+          <div class="media-slot comparison-base" data-media-slot="result" data-label="Resultado final del tratamiento en el vehículo"><span class="media-slot__tag">RESULTADO / 3:2</span></div>
+          <div class="comparison-overlay">
+            <div class="media-slot comparison-after" data-media-slot="process" data-label="Proceso de detailing en el vehículo"><span class="media-slot__tag">PROCESO / 3:2</span></div>
           </div>
-          <span class="comparison-label comparison-label-left">ANTES</span><span class="comparison-label comparison-label-right">DESPUÉS</span>
+          <span class="comparison-label comparison-label-left">PROCESO</span><span class="comparison-label comparison-label-right">RESULTADO</span>
           <span class="comparison-line" aria-hidden="true"></span><span class="comparison-handle" aria-hidden="true">↔</span>
-          <input class="comparison-range" data-comparison-range type="range" min="0" max="100" value="52" aria-label="Comparar antes y después">
+          <input class="comparison-range" data-comparison-range type="range" min="0" max="100" value="52" aria-label="Comparar proceso y resultado">
         </div>
       </div>
     </section>
@@ -155,12 +172,22 @@
         <div><p class="eyebrow eyebrow-light">GALERÍA</p><h2 id="gallery-title">La diferencia está en los detalles.</h2></div>
         <a class="text-link text-link-light" href="#agenda">Quiero resultados así <span aria-hidden="true">↗</span></a>
       </div>
-      <!-- ESPACIOS DE FOTO: "gallery-1" a "gallery-4". Hacer clic abre una vista ampliada. -->
-      <div class="shell gallery-grid">
-        <button class="gallery-item gallery-item-tall" type="button" data-gallery-item data-media-key="gallery-1" aria-label="Abrir detalle de pintura"><span class="media-slot" data-media-slot="gallery-1" data-label="Detalle de pintura con reflejo"><span class="media-slot__tag">Pintura / 4:5</span></span><span class="gallery-caption">Reflejos que se sienten nuevos <b>↗</b></span></button>
-        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-2" aria-label="Abrir detalle de interior"><span class="media-slot" data-media-slot="gallery-2" data-label="Interior limpio y acondicionado"><span class="media-slot__tag">Interior / 1:1</span></span><span class="gallery-caption">Interiores que invitan a volver <b>↗</b></span></button>
-        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-3" aria-label="Abrir detalle de rines"><span class="media-slot" data-media-slot="gallery-3" data-label="Detalle de rin protegido"><span class="media-slot__tag">Rines / 1:1</span></span><span class="gallery-caption">Acabados que hacen la diferencia <b>↗</b></span></button>
-        <button class="gallery-item gallery-item-wide" type="button" data-gallery-item data-media-key="gallery-4" aria-label="Abrir proceso de pulido"><span class="media-slot" data-media-slot="gallery-4" data-label="Proceso profesional de pulido"><span class="media-slot__tag">Proceso de pulido / 16:9</span></span><span class="gallery-caption">Precisión en cada etapa <b>↗</b></span></button>
+      <!-- Las fotos se configuran en IMAGE_SLOTS dentro de assets/app.js; al hacer clic se amplían. -->
+      <div class="shell gallery-grid" data-gallery-track>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-1" aria-label="Abrir detalle de pintura"><span class="media-slot" data-media-slot="gallery-1" data-label="Detalle de pintura con reflejo"><span class="media-slot__tag">Pintura</span></span><span class="gallery-caption">Reflejos que se sienten nuevos <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-2" aria-label="Abrir detalle de interior"><span class="media-slot" data-media-slot="gallery-2" data-label="Interior limpio y acondicionado"><span class="media-slot__tag">Interior</span></span><span class="gallery-caption">Interiores que invitan a volver <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-3" aria-label="Abrir detalle de motor"><span class="media-slot" data-media-slot="gallery-3" data-label="Motor detallado"><span class="media-slot__tag">Motor</span></span><span class="gallery-caption">Detallados que hacen la diferencia <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-4" aria-label="Abrir detalle de Volkswagen Vocho"><span class="media-slot" data-media-slot="gallery-4" data-label="Volkswagen Vocho detallado"><span class="media-slot__tag">Clásicos</span></span><span class="gallery-caption">Lavados premium <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-5" aria-label="Abrir detalle de asiento"><span class="media-slot" data-media-slot="gallery-5" data-label="Asiento limpio y acondicionado"><span class="media-slot__tag">Asientos</span></span><span class="gallery-caption">Cuidado en cada superficie <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-6" aria-label="Abrir detalle de Cadillac"><span class="media-slot" data-media-slot="gallery-6" data-label="Cadillac con acabado detallado"><span class="media-slot__tag">Acabado exterior</span></span><span class="gallery-caption">Un acabado que destaca <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-7" aria-label="Abrir detalle de Ford F-150"><span class="media-slot" data-media-slot="gallery-7" data-label="Ford F-150 después del lavado"><span class="media-slot__tag">Lavado premium</span></span><span class="gallery-caption">Lista para volver al camino <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-8" aria-label="Abrir detalle de interior Honda"><span class="media-slot" data-media-slot="gallery-8" data-label="Interior de Honda detallado"><span class="media-slot__tag">Interior</span></span><span class="gallery-caption">Limpieza que se nota <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-9" aria-label="Abrir detalle de Honda"><span class="media-slot" data-media-slot="gallery-9" data-label="Honda con exterior detallado"><span class="media-slot__tag">Exterior</span></span><span class="gallery-caption">Brillo renovado <b>↗</b></span></button>
+        <button class="gallery-item" type="button" data-gallery-item data-media-key="gallery-10" aria-label="Abrir detalle de Nissan"><span class="media-slot" data-media-slot="gallery-10" data-label="Nissan con acabado detallado"><span class="media-slot__tag">Acabado exterior</span></span><span class="gallery-caption">El cuidado está en los detalles <b>↗</b></span></button>
+      </div>
+      <div class="shell gallery-controls" aria-label="Controles de galería">
+        <button class="gallery-control" type="button" data-gallery-prev aria-label="Ver fotos anteriores">←</button>
+        <button class="gallery-control" type="button" data-gallery-next aria-label="Ver fotos siguientes">→</button>
       </div>
     </section>
 
@@ -169,19 +196,20 @@
         <div><p class="eyebrow">EXPERIENCIAS REALES</p><h2 id="testimonials-title">Cuando el resultado supera lo esperado.</h2></div>
         <!-- Reemplacen estos testimonios con opiniones reales y autorizadas de clientes. -->
         <div class="testimonial-stack">
-          <figure><blockquote>“Mi auto recuperó un brillo que no veía desde que lo compré. Me explicaron cada paso y el resultado fue impecable.”</blockquote><figcaption><span>—</span> Mariana G. · Cliente de JOY RESTORE</figcaption></figure>
-          <figure><blockquote>“La diferencia está en el cuidado. El interior quedó perfecto y ahora sé cómo mantenerlo sin dañarlo.”</blockquote><figcaption><span>—</span> Daniel R. · Cliente de JOY INTERIOR</figcaption></figure>
+          <figure><blockquote>“Excelente servicio. Lo que más me gustó fue el cuidado que le pusieron a la limpieza del interior. muy amables y el carro quedó como nuevo. Definitivamente regreso. ”</blockquote><figcaption><span>—</span> Cristina V. · Cliente de JOY INTERIOR</figcaption></figure>
+          <figure><blockquote>“Me gustó mucho el servicio, muy detallada la limpieza, se ve que le pusieron ganas por dejar al cliente satisfecho. Me duró más tiempo limpio el carro. Lo recomiendo ampliamente 🤗.”</blockquote><figcaption><span>—</span> Lily V. · Cliente de JOY CARE</figcaption></figure>
+          <figure><blockquote>“Excelente, muy profesional. Mi carro quedó súper limpio y así me duró bastante tiempo. ¡Se nota que utilizan material de calidad!”</blockquote><figcaption><span>—</span> Jorge H. · Cliente de JOY RESTORE</figcaption></figure>
         </div>
       </div>
     </section>
 
     <section class="blog-preview section-soft" id="blog" aria-labelledby="blog-title">
-      <div class="shell section-heading"><div><p class="eyebrow">APRENDE A CUIDARLO</p><h2 id="blog-title">Consejos que protegen tu inversión.</h2></div><p>Esta sección está lista para convertirse en el blog que fortalezca el SEO de la marca.</p></div>
+      <div class="shell section-heading"><div><p class="eyebrow">APRENDE A CUIDARLO</p><h2 id="blog-title">Consejos que protegen tu inversión.</h2></div><p>Descubre consejos, recomendaciones y buenas prácticas para cuidar tu automóvil, mantener su apariencia y conocer la importancia de un lavado adecuado.</p></div>
       <div class="shell article-grid">
-        <!-- Cambien los enlaces # por las entradas reales del blog cuando estén publicadas. -->
-        <a class="article-card" href="#"><span>GUÍA</span><h3>¿Por qué no todos los lavados son iguales?</h3><p>Conoce los hábitos que pueden marcar la diferencia en la pintura de tu auto.</p><b>Leer artículo →</b></a>
-        <a class="article-card" href="#"><span>CONSEJOS</span><h3>5 errores comunes al lavar un automóvil</h3><p>Pequeñas prácticas que conviene evitar para conservar el acabado.</p><b>Leer artículo →</b></a>
-        <a class="article-card" href="#"><span>EDUCACIÓN</span><h3>¿Pulido o corrección de pintura?</h3><p>Te ayudamos a entender cuál servicio necesita tu vehículo.</p><b>Leer artículo →</b></a>
+        <!-- Las entradas enlazadas abren su propia página; las demás se publicarán próximamente. -->
+        <a class="article-card" href="blog/por-que-no-todos-los-lavados-son-iguales.html"><span>GUÍA</span><h3>¿Por qué no todos los lavados son iguales?</h3><p>Conoce los hábitos que pueden marcar la diferencia en la pintura de tu auto.</p><b>Leer artículo →</b></a>
+        <a class="article-card" href="blog/5-errores-comunes-al-lavar-un-automovil.html"><span>CONSEJOS</span><h3>5 errores comunes al lavar un automóvil</h3><p>Pequeñas prácticas que conviene evitar para conservar el acabado.</p><b>Leer artículo →</b></a>
+        <a class="article-card" href="blog/pulido-o-correccion-de-pintura.html"><span>EDUCACIÓN</span><h3>¿Pulido o corrección de pintura?</h3><p>Te ayudamos a entender cuál servicio necesita tu vehículo.</p><b>Leer artículo →</b></a>
       </div>
     </section>
 
@@ -203,27 +231,23 @@
         <!-- El formulario no requiere backend: al enviarlo abre WhatsApp con los datos capturados. Configuren el número en assets/app.js. -->
         <form class="booking-form" data-booking-form novalidate>
           <div class="form-row"><label>Nombre completo<input name="name" autocomplete="name" required placeholder="Tu nombre"></label><label>Teléfono<input name="phone" inputmode="tel" autocomplete="tel" required placeholder="662 000 0000"></label></div>
-          <div class="form-row"><label>Vehículo<input name="vehicle" required placeholder="Marca, modelo y año"></label><label>Servicio<select name="service" required><option value="" selected disabled>Selecciona una opción</option><option>JOY CARE</option><option>JOY INTERIOR</option><option>JOY RESTORE</option><option>JOY PROTECT</option><option>PRESTIGE</option><option>No estoy seguro, necesito asesoría</option></select></label></div>
+          <div class="form-row"><label>Vehículo<input name="vehicle" required placeholder="Marca, modelo y año"></label><label>Servicio<select name="service" required><option value="" selected disabled>Selecciona un servicio</option><optgroup label="JOY CARE"><option>JOY CARE ESSENTIAL</option><option>JOY CARE SIGNATURE</option></optgroup><optgroup label="JOY INTERIOR"><option>JOY INTERIOR SPA</option><option>JOY FABRIC SPA</option><option>JOY LEATHER SPA</option><option>JOY ODOR ELIMINATION</option><option>JOY AROMA PERMANENTE</option><option>JOY PET HAIR REMOVAL</option><option>JOY LIMPIEZA POR LAVADO DE ASIENTOS</option><option>JOY LAVADO DE ALFOMBRAS</option></optgroup><optgroup label="JOY RESTORE"><option>JOY PAINT REVIVAL</option><option>JOY PAINT CORRECTION</option><option>JOY HEADLIGHT REVIVAL</option><option>JOY ENGINE REVIVAL</option><option>JOY WHEEL REVIVAL</option></optgroup><optgroup label="JOY PROTECT"><option>JOY WAX PROTECTION</option><option>JOY GLASS SHIELD</option><option>JOY TIRE &amp; TRIM PROTECTION</option></optgroup><optgroup label="PRESTIGE"><option>JOY PRESTIGE DETAIL</option><option>JOY PRESTIGE CORRECTION</option></optgroup><option>No estoy seguro, necesito asesoría</option></select></label></div>
           <div class="form-row"><label>Fecha preferida<input name="date" type="date" required></label><label>Horario preferido<select name="time" required><option value="" selected disabled>Selecciona un horario</option><option>Por la mañana</option><option>Por la tarde</option><option>Necesito confirmar disponibilidad</option></select></label></div>
           <label>Comentarios<textarea name="comments" rows="3" placeholder="Cuéntanos qué te gustaría mejorar de tu vehículo."></textarea></label>
+          <div class="legal-consents">
+            <label class="legal-consent"><input name="legalConsent" type="checkbox" required><span>He leído el <a href="assets/legal/JOY-LEG-001 AVISO DE PRIVACIDAD .pdf" target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a> y conozco los <a href="assets/legal/JOY-LEG-002 TERMINOS Y CONDICIONES .pdf" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a> de JOY AUTO SPA.</span></label>
+          </div>
           <button class="button button-wide" type="submit">Solicitar disponibilidad <span aria-hidden="true">↗</span></button><p class="form-status" data-form-status aria-live="polite"></p>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer" id="contacto">
-    <div class="shell footer-grid">
-      <div><a class="brand brand-footer" href="#inicio"><span class="brand-mark" aria-hidden="true">J</span><span><strong>JOY</strong><small>AUTO SPA</small></span></a><p>Detailing automotriz premium en Hermosillo, Sonora.</p></div>
-      <div><h2>Visítanos</h2><!-- Reemplazar con dirección real. --><p>Ubicación por confirmar<br>Hermosillo, Sonora, México</p><a data-map-link href="#" target="_blank" rel="noopener noreferrer">Ver en Google Maps ↗</a></div>
-      <div><h2>Horario</h2><p>Lunes a viernes · 9:00–18:00<br>Sábados · 9:00–14:00<br>Domingos · Cerrado</p></div>
-      <div><h2>Contacto</h2><a data-whatsapp-direct href="#" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a data-email-link href="joyautospamx@gmail.com">joyautospamx@gmail.com</a><div class="social-links"><a href="https://www.instagram.com/joyautospa/" aria-label="Instagram de JOY AUTO SPA">IG</a><a href="https://www.facebook.com/profile.php?id=61592713452634" aria-label="Facebook de JOY AUTO SPA">FB</a></div></div>
-    </div>
-    <div class="shell footer-bottom"><span>© <span data-year></span> JOY AUTO SPA. Todos los derechos reservados.</span><span>Hecho para cuidar lo que te mueve.</span></div>
-  </footer>
+  <div data-site-footer></div>
 
+  
   <!-- Modal reutilizado por la galería. No editar salvo que se quiera cambiar su estructura. -->
-  <dialog class="gallery-dialog" data-gallery-dialog><button class="dialog-close" type="button" data-dialog-close aria-label="Cerrar fotografía">×</button><div class="media-slot dialog-media" data-dialog-media><span class="media-slot__tag" data-dialog-label>Detalle de galería</span></div></dialog>
+  <dialog class="gallery-dialog" data-gallery-dialog><button class="dialog-close" type="button" data-dialog-close aria-label="Cerrar fotografía">×</button><button class="dialog-nav dialog-nav-prev" type="button" data-dialog-prev aria-label="Ver fotografía anterior">←</button><div class="media-slot dialog-media" data-dialog-media><span class="media-slot__tag">Detalle de galería</span></div><button class="dialog-nav dialog-nav-next" type="button" data-dialog-next aria-label="Ver fotografía siguiente">→</button></dialog>
   <script src="assets/app.js"></script>
 </body>
 </html>
