@@ -1,0 +1,25 @@
+
+# Archivos internos de Git
+**/.git
+**/.git/**
+
+# Archivos temporales de Cloudflare
+**/.wrangler
+**/.wrangler/**
+
+# Configuraciones internas
+**/.github
+**/.env*
+**/.gitignore
+**/.assetsignore
+**/node_modules
+
+# Configuracion de despliegue
+wrangler.jsonc
+wrangler.json
+wrangler.toml
+
+# Otros archivos de desarrollo
+package.json
+package-lock.json
+*.log
