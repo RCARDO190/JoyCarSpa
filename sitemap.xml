@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Pagina principal -->
+  <url>
+    <loc>https://joyautospa.com/</loc>
+  </url>
+
+  <!-- Servicios -->
+  <url>
+    <loc>https://joyautospa.com/services/joy-care</loc>
+  </url>
+  <url>
+    <loc>https://joyautospa.com/services/joy-interior</loc>
+  </url>
+  <url>
+    <loc>https://joyautospa.com/services/joy-restore</loc>
+  </url>
+  <url>
+    <loc>https://joyautospa.com/services/joy-protect</loc>
+  </url>
+  <url>
+    <loc>https://joyautospa.com/services/prestige</loc>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://joyautospa.com/blog/por-que-no-todos-los-lavados-son-iguales</loc>
+  </url>
+  <url>
+    <loc>https://joyautospa.com/blog/5-errores-comunes-al-lavar-un-automovil</loc>
+  </url>
+  <url>
+    <loc>https://joyautospa.com/blog/pulido-o-correccion-de-pintura</loc>
+  </url>
+
+</urlset>
