@@ -18,8 +18,6 @@ const SITE_CONFIG = {
   // Ejemplo para México: "526621234567". Se deja vacío para evitar enviar mensajes a un número de muestra.
   whatsappNumber: "526629489465",
   email: "joyautospamx@gmail.com",
-  // Pueden pegar aquí el enlace de Google Maps de la sucursal.
-  mapsUrl: "",
   // Para mostrar un logo, indiquen su ruta dentro de assets/images en el campo logo.
   socials: [
     { label: "Instagram", text: "IG", url: "https://www.instagram.com/joyautospa/", logo: "assets/images/iglogo.png" },
@@ -57,14 +55,7 @@ const IMAGE_SLOTS = {
   "gallery-8": { src: "assets/images/honda interior.png", alt: "Interior de Honda detallado" },
   "gallery-9": { src: "assets/images/honda negro frontal.png", alt: "Honda con exterior detallado" },
   "gallery-10": { src: "assets/images/nissan gris frontal.png", alt: "Nissan con acabado detallado" },
-  // Fotos principales de las páginas individuales de servicio.
-  "joy-care": { src: "../X", alt: "Servicio JOY CARE en JOY AUTO SPA" },
-  "joy-interior": { src: "../X", alt: "Servicio JOY INTERIOR en JOY AUTO SPA" },
-  "joy-restore": { src: "../X", alt: "Servicio JOY RESTORE en JOY AUTO SPA" },
-  "joy-protect": { src: "../X", alt: "Servicio JOY PROTECT en JOY AUTO SPA" },
-  prestige: { src: "../X", alt: "Servicio PRESTIGE en JOY AUTO SPA" }
 };
-//actualizacion
 
 // Si cuentan con un video para la portada, coloquen la ruta aquí. Tiene prioridad sobre IMAGE_SLOTS.hero.
 const VIDEO_SLOTS = {
@@ -174,7 +165,7 @@ function renderSiteFooters() {
         <div><h2>Servicio a domicilio</h2><p>Hermosillo, Sonora, México</p></div>
         <div><h2>Horario</h2><p>Lunes a viernes · 9:00–18:00<br>Sábados · 9:00–15:00<br>Tardes de sábado y domingos: Solo urgencias con costo extra, acordado al contratar.</p></div>
         <div><h2>Contacto</h2><a data-whatsapp-direct href="#" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a data-email-link href="#">joyautospamx@gmail.com</a><nav class="social-links" aria-label="Redes sociales"></nav></div>
-        <div><h2>Legales</h2><a href="${new URL("assets/legal/AVISO_PRIVACIDAD_JOY_AUTO_SPA.pdf", siteRoot).href}" target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a><a href="${new URL("assets/legal/TERMINOS_Y_CONDICIONES_JOY_AUTO_SPA.pdf", siteRoot).href}" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a></div>
+        <div><h2>Legales</h2><a href="${new URL("assets/legal/JOY-LEG-001 AVISO DE PRIVACIDAD .pdf", siteRoot).href}" target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a><a href="${new URL("assets/legal/JOY-LEG-002 TERMINOS Y CONDICIONES .pdf", siteRoot).href}" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a></div>
       </div>
       <div class="shell footer-bottom"><span>© <span data-year></span> JOY AUTO SPA. Todos los derechos reservados.</span><span>Hecho para cuidar lo que te mueve.</span></div>`;
     const socialContainer = footer.querySelector(".social-links");
@@ -304,16 +295,6 @@ function configureContactLinks() {
   document.querySelectorAll("[data-email-link]").forEach((link) => {
     link.href = `mailto:${SITE_CONFIG.email}`;
     link.textContent = SITE_CONFIG.email;
-  });
-
-  document.querySelectorAll("[data-map-link]").forEach((link) => {
-    if (SITE_CONFIG.mapsUrl) link.href = SITE_CONFIG.mapsUrl;
-    link.addEventListener("click", (event) => {
-      if (!SITE_CONFIG.mapsUrl) {
-        event.preventDefault();
-        showToast("Agrega el enlace real de Google Maps en assets/app.js para activar este botón.");
-      }
-    });
   });
 
   document.querySelectorAll("[data-whatsapp-direct]").forEach((link) => {
@@ -475,14 +456,6 @@ function setupGalleryCarousel() {
   updateControls();
 }
 
-function setupServicePage() {
-  const page = document.body.dataset.service;
-  if (!page) return;
-  // La imagen principal de cada página de servicio se configura igual que las demás imágenes.
-  const heroSlot = document.querySelector("[data-service-hero]");
-  if (heroSlot) renderMediaSlot(heroSlot, page);
-}
-
 // Arranque centralizado: mantengan aquí los módulos nuevos si agregan funcionalidades.
 document.addEventListener("DOMContentLoaded", () => {
   renderSiteHeaders();
@@ -495,6 +468,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setupComparison();
   setupGallery();
   setupGalleryCarousel();
-  setupServicePage();
   document.querySelectorAll("[data-year]").forEach((node) => { node.textContent = new Date().getFullYear(); });
 });
