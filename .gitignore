@@ -1,0 +1,27 @@
+
+# Credenciales y variables de entorno
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+
+# Claves y certificados privados
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.json
+
+# Archivos temporales de Cloudflare
+.wrangler/
+
+# Dependencias
+node_modules/
+
+# Registros de errores
+*.log
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
